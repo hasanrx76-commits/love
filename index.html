@@ -86,7 +86,7 @@ tailwind.config = {
 <style>
 @layer base {
   html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; }
-  body { overscroll-behavior: none; font-family: 'Manrope', sans-serif; background: #fbf9f5; }
+  body { overscroll-behavior: none; font-family: 'Manrope', sans-serif; background: #fbf9f5; overflow: hidden; }
   .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
   ::-webkit-scrollbar { display: none; }
 }
@@ -120,7 +120,7 @@ tailwind.config = {
 <body>
 
 <!-- PASSWORD SCREEN -->
-<div id="passwordScreen" class="fixed inset-0 z-[100] bg-gradient-to-br from-[#6b0e30] via-[#8a2846] to-[#512c2b] flex flex-col items-center justify-center px-6">
+<div id="passwordScreen" class="fixed inset-0 z-[100] bg-gradient-to-br from-[#6b0e30] via-[#8a2846] to-[#512c2b] flex flex-col items-center justify-center px-6" style="position:fixed !important;inset:0 !important;z-index:9999 !important;display:flex !important;visibility:visible !important;">
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-32 right-8 w-40 h-40 bg-[#fed65b]/10 rounded-full blur-3xl"></div>
