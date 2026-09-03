@@ -201,7 +201,12 @@ tailwind.config = {
             <h3 class="font-headline text-base text-primary leading-tight" style="font-family:'Playfair Display',serif">Days of Love</h3>
           </div>
         </div>
-        <span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] tracking-wider uppercase font-bold" id="daysBadge">730+ Days</span>
+        <div class="flex items-center gap-2">
+          <button onclick="openDateEditModal()" class="p-1.5 rounded-full bg-surface-container hover:bg-primary-fixed/40 transition-colors" title="Change start date">
+            <span class="material-symbols-outlined text-[14px] text-primary">edit</span>
+          </button>
+          <span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] tracking-wider uppercase font-bold" id="daysBadge">730+ Days</span>
+        </div>
       </div>
       <div class="grid grid-cols-4 gap-2 text-center relative z-10">
         <div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col items-center justify-center shadow-sm">
@@ -855,6 +860,25 @@ tailwind.config = {
   </div>
 </div>
 
+<!-- Date Edit Modal -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-4 hidden" id="dateEditModal">
+  <div class="w-full max-w-sm rounded-xl bg-surface-container-lowest p-space-lg shadow-2xl space-y-space-sm slide-up">
+    <div class="flex items-center justify-between">
+      <h4 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Change Start Date</h4>
+      <button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="document.getElementById('dateEditModal').classList.add('hidden')">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="DD" type="number" id="editDay" min="1" max="31">
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="MM (1-12)" type="number" id="editMonth" min="1" max="12">
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="YYYY" type="number" id="editYear" min="2000" max="2099">
+    <div class="pt-2 flex gap-2">
+      <button class="flex-1 py-2.5 rounded-full bg-surface-container text-[13px] text-on-surface font-medium" onclick="document.getElementById('dateEditModal').classList.add('hidden')">Cancel</button>
+      <button class="flex-1 py-2.5 rounded-full bg-primary text-on-primary text-[13px] font-medium shadow" onclick="saveStartDate()">Save</button>
+    </div>
+  </div>
+</div>
+
 <!-- ======================== JAVASCRIPT ======================== -->
 <script>
 // Navigation
@@ -875,8 +899,9 @@ function go(page) {
 }
 document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
 
-// Countdown - 14 Oct 2021
-const startDate = new Date(2021, 9, 14);
+// Countdown
+let savedDate = localStorage.getItem('startDate');
+let startDate = savedDate ? new Date(savedDate) : new Date(2021, 9, 14);
 function updateCountdown() {
   const now = new Date(), diff = now - startDate;
   const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5), m = Math.floor(diff % 36e5 / 6e4), s = Math.floor(diff % 6e4 / 1e3);
@@ -885,10 +910,26 @@ function updateCountdown() {
   document.getElementById('cMin').textContent = m < 10 ? '0' + m : m;
   document.getElementById('cSec').textContent = s < 10 ? '0' + s : s;
   document.getElementById('daysBadge').textContent = d + '+ Days';
-  document.getElementById('nikkahDays').textContent = d + ' days together';
+  if (document.getElementById('nikkahDays')) document.getElementById('nikkahDays').textContent = d + ' days together';
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+function openDateEditModal() {
+  document.getElementById('editDay').value = startDate.getDate();
+  document.getElementById('editMonth').value = startDate.getMonth() + 1;
+  document.getElementById('editYear').value = startDate.getFullYear();
+  document.getElementById('dateEditModal').classList.remove('hidden');
+}
+function saveStartDate() {
+  const d = parseInt(document.getElementById('editDay').value);
+  const m = parseInt(document.getElementById('editMonth').value) - 1;
+  const y = parseInt(document.getElementById('editYear').value);
+  if (isNaN(d) || isNaN(m) || isNaN(y) || d < 1 || d > 31 || m < 0 || m > 11 || y < 2000) return;
+  startDate = new Date(y, m, d);
+  localStorage.setItem('startDate', startDate.toISOString());
+  updateCountdown();
+  document.getElementById('dateEditModal').classList.add('hidden');
+}
 
 // Hero Cover Photo + Change
 document.getElementById('heroInput').onchange = function(e) { handleHeroCover(e); };
