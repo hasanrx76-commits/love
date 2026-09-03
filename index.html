@@ -634,30 +634,6 @@ tailwind.config = {
   <div class="absolute top-96 -right-16 w-64 h-64 bg-secondary-fixed/25 rounded-full blur-3xl pointer-events-none"></div>
   <div class="pointer-events-none fixed inset-0 z-10 overflow-hidden" id="petalCanvas"></div>
 
-  <!-- Photo Upload -->
-  <section class="w-full px-gutter-mobile pt-space-sm pb-space-md">
-    <div class="relative rounded-xl overflow-hidden" id="wishPhotoContainer">
-      <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden" id="wishPhotoLabel">
-        <input type="file" accept="image/*" class="hidden" id="wishPhotoInput">
-        <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs" id="wishPhotoIcon">
-          <span class="material-symbols-outlined text-[26px]">add_a_photo</span>
-        </div>
-        <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif" id="wishPhotoText">Add Couple Thank You Photo</span>
-        <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center" id="wishPhotoDesc">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
-        <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
-      </label>
-      <img id="wishPhotoPreview" class="hidden absolute inset-0 w-full h-full object-cover rounded-xl">
-      <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent flex items-center gap-2 rounded-b-xl hidden" id="wishPhotoActions">
-        <button onclick="changeWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-white/90 backdrop-blur-sm text-primary text-[11px] font-semibold uppercase tracking-wider">
-          <span class="material-symbols-outlined text-[14px]">edit</span> Change
-        </button>
-        <button onclick="deleteWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-red-500/90 backdrop-blur-sm text-white text-[11px] font-semibold uppercase tracking-wider">
-          <span class="material-symbols-outlined text-[14px]">delete</span> Delete
-        </button>
-      </div>
-    </div>
-  </section>
-
   <!-- Send Love Note -->
   <section class="w-full px-gutter-mobile pb-space-md">
     <div class="w-full bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] relative">
@@ -1060,29 +1036,6 @@ document.getElementById('galleryFileInput').onchange = function(e) {
   };
   reader.readAsDataURL(file);
 };
-
-// Wishes Photo Upload
-document.getElementById('wishPhotoInput').onchange = function(e) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    document.getElementById('wishPhotoPreview').src = ev.target.result;
-    document.getElementById('wishPhotoPreview').classList.remove('hidden');
-    document.getElementById('wishPhotoLabel').classList.add('hidden');
-    document.getElementById('wishPhotoActions').classList.remove('hidden');
-  };
-  reader.readAsDataURL(file);
-};
-function changeWishPhoto() {
-  document.getElementById('wishPhotoInput').click();
-}
-function deleteWishPhoto() {
-  document.getElementById('wishPhotoPreview').src = '';
-  document.getElementById('wishPhotoPreview').classList.add('hidden');
-  document.getElementById('wishPhotoLabel').classList.remove('hidden');
-  document.getElementById('wishPhotoActions').classList.add('hidden');
-  document.getElementById('wishPhotoInput').value = '';
-}
 document.getElementById('publishGalleryBtn').onclick = function() {
   const preview = document.getElementById('galleryPreview');
   const caption = document.getElementById('galleryCaption').value.trim() || 'New Memory';
