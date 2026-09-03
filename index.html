@@ -636,23 +636,25 @@ tailwind.config = {
 
   <!-- Photo Upload -->
   <section class="w-full px-gutter-mobile pt-space-sm pb-space-md">
-    <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden" id="wishPhotoLabel">
-      <input type="file" accept="image/*" class="hidden" id="wishPhotoInput">
+    <div class="relative rounded-xl overflow-hidden" id="wishPhotoContainer">
+      <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden" id="wishPhotoLabel">
+        <input type="file" accept="image/*" class="hidden" id="wishPhotoInput">
+        <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs" id="wishPhotoIcon">
+          <span class="material-symbols-outlined text-[26px]">add_a_photo</span>
+        </div>
+        <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif" id="wishPhotoText">Add Couple Thank You Photo</span>
+        <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center" id="wishPhotoDesc">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
+        <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
+      </label>
       <img id="wishPhotoPreview" class="hidden absolute inset-0 w-full h-full object-cover rounded-xl">
-      <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs" id="wishPhotoIcon">
-        <span class="material-symbols-outlined text-[26px]">add_a_photo</span>
+      <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent flex items-center gap-2 rounded-b-xl hidden" id="wishPhotoActions">
+        <button onclick="changeWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-white/90 backdrop-blur-sm text-primary text-[11px] font-semibold uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[14px]">edit</span> Change
+        </button>
+        <button onclick="deleteWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-red-500/90 backdrop-blur-sm text-white text-[11px] font-semibold uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[14px]">delete</span> Delete
+        </button>
       </div>
-      <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif" id="wishPhotoText">Add Couple Thank You Photo</span>
-      <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center" id="wishPhotoDesc">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
-      <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
-    </label>
-    <div class="flex items-center gap-2 mt-2 hidden" id="wishPhotoActions">
-      <button onclick="changeWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-primary text-on-primary text-[11px] font-semibold uppercase tracking-wider">
-        <span class="material-symbols-outlined text-[14px]">edit</span> Change
-      </button>
-      <button onclick="deleteWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-red-500 text-white text-[11px] font-semibold uppercase tracking-wider">
-        <span class="material-symbols-outlined text-[14px]">delete</span> Delete
-      </button>
     </div>
   </section>
 
@@ -1066,11 +1068,8 @@ document.getElementById('wishPhotoInput').onchange = function(e) {
   reader.onload = function(ev) {
     document.getElementById('wishPhotoPreview').src = ev.target.result;
     document.getElementById('wishPhotoPreview').classList.remove('hidden');
-    document.getElementById('wishPhotoIcon').classList.add('hidden');
-    document.getElementById('wishPhotoText').textContent = 'Photo Uploaded';
-    document.getElementById('wishPhotoDesc').textContent = 'Tap below to change or delete.';
-    document.getElementById('wishPhotoActions').classList.remove('hidden');
     document.getElementById('wishPhotoLabel').classList.add('hidden');
+    document.getElementById('wishPhotoActions').classList.remove('hidden');
   };
   reader.readAsDataURL(file);
 };
@@ -1080,11 +1079,8 @@ function changeWishPhoto() {
 function deleteWishPhoto() {
   document.getElementById('wishPhotoPreview').src = '';
   document.getElementById('wishPhotoPreview').classList.add('hidden');
-  document.getElementById('wishPhotoIcon').classList.remove('hidden');
-  document.getElementById('wishPhotoText').textContent = 'Add Couple Thank You Photo';
-  document.getElementById('wishPhotoDesc').textContent = 'Asif & Shahzadi can upload their personal thank you picture or portrait here.';
-  document.getElementById('wishPhotoActions').classList.add('hidden');
   document.getElementById('wishPhotoLabel').classList.remove('hidden');
+  document.getElementById('wishPhotoActions').classList.add('hidden');
   document.getElementById('wishPhotoInput').value = '';
 }
 document.getElementById('publishGalleryBtn').onclick = function() {
