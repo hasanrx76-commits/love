@@ -646,45 +646,13 @@ tailwind.config = {
       <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center" id="wishPhotoDesc">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
       <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
     </label>
-  </section>
-
-  <!-- Love Lock -->
-  <section class="w-full px-gutter-mobile pb-space-md">
-    <div class="w-full bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] relative overflow-hidden">
-      <div class="flex items-start justify-between">
-        <div class="flex flex-col">
-          <span class="text-[10px] text-secondary uppercase font-semibold">Virtual Heirloom</span>
-          <h2 class="font-headline text-base text-primary mt-0.5" style="font-family:'Playfair Display',serif">The Eternal Love Lock</h2>
-        </div>
-        <div class="w-10 h-10 rounded-full bg-secondary-fixed/40 flex items-center justify-center text-secondary">
-          <span class="material-symbols-outlined text-[22px]">lock</span>
-        </div>
-      </div>
-      <p class="text-[12px] text-on-surface-variant mt-space-xs">Fasten your blessed prayers onto Asif & Shahzadi's eternal golden bridge of memories.</p>
-      <div class="mt-space-md relative flex flex-col items-center justify-center py-space-lg bg-surface-container/60 rounded-xl">
-        <div class="absolute top-2 left-4 text-xs opacity-60">&#x1F338;</div>
-        <div class="absolute bottom-3 right-5 text-xs opacity-60">&#x2728;</div>
-        <div class="relative cursor-pointer transition-transform duration-300 hover:scale-105" id="loveLockContainer">
-          <div class="w-32 h-36 bg-gradient-to-b from-secondary-fixed to-secondary-container rounded-3xl shadow-md flex flex-col items-center justify-center p-space-sm relative">
-            <div class="absolute -top-7 w-16 h-14 rounded-t-full shadow-inner flex items-center justify-center" style="box-shadow: inset 0 6px 0 6px #735c00;"></div>
-            <div class="w-10 h-10 rounded-full bg-surface-container-lowest/50 flex items-center justify-center text-primary shadow-inner mb-1">
-              <span class="material-symbols-outlined text-[22px] filled">favorite</span>
-            </div>
-            <span class="text-[10px] text-on-secondary-fixed uppercase text-center font-bold tracking-tight px-1 line-clamp-2" id="lockText">A & S Forever</span>
-            <span class="text-[8px] text-secondary font-medium mt-1">LOCKED #428</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-space-xs mt-space-md w-full px-space-sm">
-          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockPassword" maxlength="24" placeholder="Enter password to lock..." type="password">
-          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockInput" maxlength="24" placeholder="Engrave your initials..." type="text">
-          <button class="bg-primary text-on-primary text-[11px] uppercase px-space-md py-2.5 rounded-full shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1 active:scale-95 font-semibold" id="lockBtn" type="button">
-            <span class="material-symbols-outlined text-[16px]">key</span>
-            <span>Lock</span>
-          </button>
-        </div>
-        <p class="text-[12px] text-primary font-medium mt-2 hidden transition-all" id="lockToast">&#x2728; Your prayer was locked in the golden archive!</p>
-        <p class="text-[11px] text-red-500 mt-1 hidden" id="lockError">Wrong password! Hint: sweet love</p>
-      </div>
+    <div class="flex items-center gap-2 mt-2 hidden" id="wishPhotoActions">
+      <button onclick="changeWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-primary text-on-primary text-[11px] font-semibold uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[14px]">edit</span> Change
+      </button>
+      <button onclick="deleteWishPhoto()" class="flex-1 flex items-center justify-center gap-1 py-2 rounded-full bg-red-500 text-white text-[11px] font-semibold uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[14px]">delete</span> Delete
+      </button>
     </div>
   </section>
 
@@ -1099,11 +1067,26 @@ document.getElementById('wishPhotoInput').onchange = function(e) {
     document.getElementById('wishPhotoPreview').src = ev.target.result;
     document.getElementById('wishPhotoPreview').classList.remove('hidden');
     document.getElementById('wishPhotoIcon').classList.add('hidden');
-    document.getElementById('wishPhotoText').textContent = 'Change Photo';
-    document.getElementById('wishPhotoDesc').textContent = 'Photo uploaded! Tap to change.';
+    document.getElementById('wishPhotoText').textContent = 'Photo Uploaded';
+    document.getElementById('wishPhotoDesc').textContent = 'Tap below to change or delete.';
+    document.getElementById('wishPhotoActions').classList.remove('hidden');
+    document.getElementById('wishPhotoLabel').classList.add('hidden');
   };
   reader.readAsDataURL(file);
 };
+function changeWishPhoto() {
+  document.getElementById('wishPhotoInput').click();
+}
+function deleteWishPhoto() {
+  document.getElementById('wishPhotoPreview').src = '';
+  document.getElementById('wishPhotoPreview').classList.add('hidden');
+  document.getElementById('wishPhotoIcon').classList.remove('hidden');
+  document.getElementById('wishPhotoText').textContent = 'Add Couple Thank You Photo';
+  document.getElementById('wishPhotoDesc').textContent = 'Asif & Shahzadi can upload their personal thank you picture or portrait here.';
+  document.getElementById('wishPhotoActions').classList.add('hidden');
+  document.getElementById('wishPhotoLabel').classList.remove('hidden');
+  document.getElementById('wishPhotoInput').value = '';
+}
 document.getElementById('publishGalleryBtn').onclick = function() {
   const preview = document.getElementById('galleryPreview');
   const caption = document.getElementById('galleryCaption').value.trim() || 'New Memory';
@@ -1136,18 +1119,6 @@ document.getElementById('publishGalleryBtn').onclick = function() {
   document.getElementById('galleryPreview').classList.add('hidden');
   document.getElementById('galleryCaption').value = '';
   document.getElementById('uploadModal').classList.add('hidden');
-};
-
-// Love Lock
-document.getElementById('lockBtn').onclick = () => {
-  const v = document.getElementById('lockInput').value.trim();
-  if (v) {
-    document.getElementById('lockText').textContent = v;
-    document.getElementById('lockInput').value = '';
-    const t = document.getElementById('lockToast');
-    t.classList.remove('hidden');
-    setTimeout(() => t.classList.add('hidden'), 3500);
-  }
 };
 
 // Sticker Selection & Live Preview
@@ -1368,34 +1339,6 @@ function checkPassword() {
 document.getElementById('passwordInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') checkPassword();
 });
-
-// Love Lock Password
-document.getElementById('lockBtn').onclick = () => {
-  const password = document.getElementById('lockPassword').value.trim();
-  const v = document.getElementById('lockInput').value.trim();
-  const errorEl = document.getElementById('lockError');
-  const toastEl = document.getElementById('lockToast');
-  if (!password) {
-    errorEl.textContent = 'Enter the lock password!';
-    errorEl.classList.remove('hidden');
-    setTimeout(() => errorEl.classList.add('hidden'), 3000);
-    return;
-  }
-  if (password !== 'sweet love') {
-    errorEl.textContent = 'Wrong password!';
-    errorEl.classList.remove('hidden');
-    setTimeout(() => errorEl.classList.add('hidden'), 3000);
-    return;
-  }
-  errorEl.classList.add('hidden');
-  if (v) {
-    document.getElementById('lockText').textContent = v;
-    document.getElementById('lockInput').value = '';
-    document.getElementById('lockPassword').value = '';
-    toastEl.classList.remove('hidden');
-    setTimeout(() => toastEl.classList.add('hidden'), 3500);
-  }
-};
 
 // Delete Button for Submitted Memories
 document.addEventListener('click', e => {
