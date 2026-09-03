@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#6b0e30">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Asif & Shahzadi - Eternal Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "tertiary-fixed-dim": "#f1b9b7",
+        "on-surface-variant": "#554245",
+        "surface": "#fbf9f5",
+        "on-secondary-fixed": "#241a00",
+        "on-background": "#1b1c1a",
+        "on-tertiary-fixed": "#311212",
+        "on-primary-container": "#ffa4b7",
+        "surface-container-high": "#eae8e4",
+        "surface-bright": "#fbf9f5",
+        "surface-tint": "#a13a57",
+        "surface-container-lowest": "#ffffff",
+        "surface-container": "#efeeea",
+        "outline": "#887175",
+        "outline-variant": "#dbc0c4",
+        "tertiary": "#512c2b",
+        "on-primary": "#ffffff",
+        "on-tertiary": "#ffffff",
+        "on-primary-fixed": "#3f0017",
+        "tertiary-container": "#6b4241",
+        "primary": "#6b0e30",
+        "on-tertiary-container": "#e8b1af",
+        "primary-fixed": "#ffd9df",
+        "secondary-container": "#fed65b",
+        "secondary-fixed-dim": "#e9c349",
+        "inverse-surface": "#30312e",
+        "secondary": "#735c00",
+        "on-secondary": "#ffffff",
+        "on-secondary-container": "#745c00",
+        "inverse-primary": "#ffb1c1",
+        "secondary-fixed": "#ffe088",
+        "background": "#fbf9f5",
+        "surface-dim": "#dbdad6",
+        "on-tertiary-fixed-variant": "#643c3b",
+        "surface-container-low": "#f5f3ef",
+        "on-secondary-fixed-variant": "#574500",
+        "surface-container-highest": "#e4e2de",
+        "surface-variant": "#e4e2de",
+        "on-primary-fixed-variant": "#822240",
+        "primary-container": "#8a2846",
+        "on-surface": "#1b1c1a",
+        "on-error": "#ffffff",
+        "error": "#ba1a1a",
+        "error-container": "#ffdad6"
+      },
+      fontFamily: {
+        "headline": ["Playfair Display", "serif"],
+        "body": ["Manrope", "sans-serif"]
+      },
+      spacing: {
+        "gutter-mobile": "1rem",
+        "space-2xs": "0.25rem",
+        "space-xs": "0.5rem",
+        "space-sm": "0.75rem",
+        "space-md": "1rem",
+        "space-lg": "1.5rem",
+        "space-xl": "2rem",
+        "space-2xl": "3rem"
+      },
+      borderRadius: {
+        "xl": "1rem",
+        "2xl": "1.5rem"
+      }
+    }
+  }
+}
+</script>
+<style>
+@layer base {
+  html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; }
+  body { overscroll-behavior: none; font-family: 'Manrope', sans-serif; background: #fbf9f5; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  ::-webkit-scrollbar { display: none; }
+}
+.page { display: none; padding-bottom: 80px; min-height: 100vh; }
+.page.active { display: block; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.filled { font-variation-settings: 'FILL' 1; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popHeart { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+.pop { animation: popHeart .3s ease; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.slide-up { animation: slideUp .3s ease; }
+@keyframes floatPetal {
+  0% { transform: translateY(-10px) rotate(0deg) scale(0.8); opacity: 0.7; }
+  100% { transform: translateY(100vh) rotate(360deg) scale(0.4); opacity: 0; }
+}
+.petal { position: fixed; pointer-events: none; z-index: 10; font-size: 16px; animation: floatPetal linear forwards; }
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- ======================== HOME PAGE ======================== -->
+<div class="page active" id="page-home">
+  <!-- Ambient Glow -->
+  <div class="relative">
+    <div class="glow-orb w-48 h-48 bg-primary/10 -top-12 left-1/2 -translate-x-1/2"></div>
+  </div>
+
+  <!-- Hero Cover -->
+  <section class="relative w-full px-gutter-mobile pt-space-xs pb-space-lg flex flex-col items-center">
+    <div class="relative w-full rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(138,40,70,0.1)] bg-surface-container-low flex flex-col items-center">
+      <div class="relative w-full overflow-hidden bg-gradient-to-br from-surface-container-low via-surface-container-high to-surface-container border-2 border-dashed border-outline-variant rounded-t-2xl flex flex-col justify-between p-space-md" style="min-height:280px">
+        <img id="heroCover" alt="" class="absolute inset-0 w-full h-full object-cover hidden z-0">
+        <div id="heroOverlay" class="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent hidden z-10 pointer-events-none"></div>
+        <div class="relative z-20 flex items-center justify-between w-full">
+          <span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-surface-container-lowest/90 text-primary font-semibold text-[11px] tracking-wider uppercase shadow-sm">
+            <span class="material-symbols-outlined text-[14px]">add_photo_alternate</span> Custom Memory
+          </span>
+          <span class="text-[10px] text-outline uppercase tracking-wider bg-surface-container-lowest/80 px-2 py-0.5 rounded-full font-semibold">PNG / JPG</span>
+        </div>
+        <div id="heroPrompt" class="relative z-20 flex flex-col items-center justify-center my-auto text-center px-space-sm">
+          <div class="w-16 h-16 rounded-full bg-surface-container-lowest/90 shadow-md flex items-center justify-center text-primary mb-space-xs group-hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[32px]">add_a_photo</span>
+          </div>
+          <h4 class="font-headline text-lg text-primary" style="font-family:'Playfair Display',serif">Upload Cover Memory</h4>
+          <p class="font-body text-[13px] text-on-surface-variant max-w-[240px] mt-1">Tap to add Asif & Shahzadi's favorite photo together</p>
+          <label class="mt-space-md inline-flex items-center gap-1.5 px-space-md py-space-xs rounded-full bg-primary text-on-primary text-[11px] font-semibold tracking-widest uppercase shadow-md hover:bg-primary-container transition-all cursor-pointer active:scale-95">
+            <span class="material-symbols-outlined text-[16px]">cloud_upload</span> Choose Photo
+            <input type="file" accept="image/*" class="hidden" id="heroInput">
+          </label>
+        </div>
+        <!-- Change Photo Button (shown after upload) -->
+        <div id="heroChangeBtn" class="absolute bottom-3 right-3 z-30 hidden">
+          <label class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-md text-primary text-[10px] font-semibold uppercase tracking-wider cursor-pointer active:scale-95 transition-transform hover:bg-white">
+            <span class="material-symbols-outlined text-[14px]">photo_camera</span> Change Photo
+            <input type="file" accept="image/*" class="hidden" id="heroChangeInput">
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Celebration Clock -->
+  <section class="w-full px-gutter-mobile pb-space-lg">
+    <div class="relative w-full rounded-2xl bg-surface-container-lowest p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="flex items-center justify-between mb-space-md relative z-10">
+        <div class="flex items-center gap-space-xs">
+          <div class="w-7 h-7 rounded-full bg-[#ffdad8] flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-outline uppercase tracking-widest font-semibold block">Celebration Clock</span>
+            <h3 class="font-headline text-base text-primary leading-tight" style="font-family:'Playfair Display',serif">Days of Love</h3>
+          </div>
+        </div>
+        <span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] tracking-wider uppercase font-bold" id="daysBadge">730+ Days</span>
+      </div>
+      <div class="grid grid-cols-4 gap-2 text-center relative z-10">
+        <div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col items-center justify-center shadow-sm">
+          <span class="text-2xl text-primary font-bold font-headline" id="cDays" style="font-family:'Playfair Display',serif">0</span>
+          <span class="text-[10px] text-outline tracking-wider uppercase mt-1 font-semibold">Days</span>
+        </div>
+        <div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col items-center justify-center shadow-sm">
+          <span class="text-2xl text-primary font-bold font-headline" id="cHrs" style="font-family:'Playfair Display',serif">0</span>
+          <span class="text-[10px] text-outline tracking-wider uppercase mt-1 font-semibold">Hours</span>
+        </div>
+        <div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col items-center justify-center shadow-sm">
+          <span class="text-2xl text-primary font-bold font-headline" id="cMin" style="font-family:'Playfair Display',serif">0</span>
+          <span class="text-[10px] text-outline tracking-wider uppercase mt-1 font-semibold">Mins</span>
+        </div>
+        <div class="p-space-xs rounded-xl bg-surface-container-low flex flex-col items-center justify-center shadow-sm">
+          <span class="text-2xl text-primary font-bold font-headline" id="cSec" style="font-family:'Playfair Display',serif">0</span>
+          <span class="text-[10px] text-outline tracking-wider uppercase mt-1 font-semibold">Secs</span>
+        </div>
+      </div>
+      <div class="mt-space-md pt-space-xs flex items-center justify-center gap-space-xs text-on-surface-variant relative z-10">
+        <span class="material-symbols-outlined text-[16px] text-secondary">all_inclusive</span>
+        <span class="text-[13px] italic text-center">of cherished shared laughter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Poetic Verse - 3 Languages -->
+  <section class="w-full px-gutter-mobile pb-space-lg">
+    <div class="relative w-full rounded-2xl bg-gradient-to-br from-primary-fixed/40 via-surface-container-lowest to-surface-container-low p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)]">
+      <div class="flex items-center justify-between mb-space-sm">
+        <span class="text-[11px] text-primary uppercase tracking-widest font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">format_quote</span> Daily Poetic Verse
+        </span>
+        <button class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-outline hover:text-primary transition-colors" id="likeQuoteBtn">
+          <span class="material-symbols-outlined text-[18px]" id="quoteHeart">favorite</span>
+        </button>
+      </div>
+      <!-- English -->
+      <p class="text-[15px] text-primary leading-snug italic mb-2 transition-opacity duration-300" style="font-family:'Playfair Display',serif" id="quoteEn">
+        "In your eyes, I found the sanctuary my heart had sought in every lifetime. You are the poem my soul always wanted to write."
+      </p>
+      <!-- Hindi -->
+      <p class="text-[15px] text-primary-container leading-snug mb-2 transition-opacity duration-300" style="font-family:'Playfair Display',serif" id="quoteHi">
+        "तुम्हारी आँखों में मैंने वो सुकून पाया जिसकी तलाश मेरे दिल को हर जन्म में थी। तुम वो कविता हो जो मेरी रूह हमेशा लिखना चाहती थी।"
+      </p>
+      <!-- Hinglish -->
+      <p class="text-[14px] text-on-surface-variant leading-snug italic transition-opacity duration-300" style="font-family:'Playfair Display',serif" id="quoteHiNg">
+        "Tumhari aankhon mein maine woh sukoon paaya jiski talaash mere dil ko har janam mein thi. Tum woh kavita ho jo meri rooh hamesha likhna chahti thi."
+      </p>
+      <div class="mt-2 flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded-full bg-primary-fixed/50 text-primary text-[9px] font-bold uppercase">EN</span>
+        <span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary-container text-[9px] font-bold uppercase">हिन्दी</span>
+        <span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[9px] font-bold uppercase">Hinglish</span>
+      </div>
+      <div class="mt-space-md flex items-center justify-between pt-space-xs">
+        <span class="text-[12px] text-outline">Sacred Promises</span>
+        <button class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant text-[11px] tracking-widest uppercase hover:bg-primary-fixed hover:text-primary transition-colors flex items-center gap-1 active:scale-95" id="nextQuoteBtn">
+          Next Verse <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exclusive Excerpt - Editable -->
+  <section class="w-full px-gutter-mobile pb-space-lg">
+    <div class="relative w-full rounded-2xl bg-surface-container-lowest p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)]">
+      <div class="flex items-center justify-between mb-space-sm">
+        <div class="flex items-center gap-space-xs">
+          <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[18px]">drafts</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-outline uppercase tracking-widest font-semibold block">Exclusive Excerpt</span>
+            <h3 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Note for Shahzadi</h3>
+          </div>
+        </div>
+        <button class="flex items-center gap-1 px-2 py-1 rounded-full bg-primary-fixed/40 text-primary text-[10px] font-semibold" onclick="document.getElementById('letterModal').classList.remove('hidden')">
+          <span class="material-symbols-outlined text-[14px]">edit</span> Edit
+        </button>
+      </div>
+      <div class="relative p-space-md rounded-xl bg-surface-container-low shadow-sm my-space-xs">
+        <p class="text-[16px] text-on-surface italic leading-relaxed" style="font-family:'Playfair Display',serif" id="noteForShahzadi">
+          "Meri Shahzadi, every dawn feels like our very first coffee together. Thank you for turning our world into an endless symphony of gentle grace and kindness."
+        </p>
+        <div class="mt-space-md flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[18px]">brush</span>
+            <span class="font-headline text-base text-primary font-bold italic" style="font-family:'Playfair Display',serif">Asif</span>
+          </div>
+          <span class="text-[10px] text-outline tracking-wider font-semibold">With Eternal Love</span>
+        </div>
+      </div>
+      <!-- Saved Letters -->
+      <div id="savedLetters" class="mt-space-md space-y-3"></div>
+      <button class="w-full mt-space-md py-2.5 rounded-full border-2 border-dashed border-outline-variant text-primary text-[11px] font-semibold uppercase tracking-wider flex items-center justify-center gap-2 hover:border-primary hover:bg-primary-fixed/20 transition-all active:scale-[0.98]" onclick="document.getElementById('letterModal').classList.remove('hidden')">
+        <span class="material-symbols-outlined text-[16px]">add</span> Add Another Letter
+      </button>
+    </div>
+  </section>
+
+  <!-- Curated Chapters -->
+  <section class="w-full px-gutter-mobile pb-space-xl">
+    <div class="flex items-center justify-between mb-space-md">
+      <div>
+        <span class="text-[10px] text-outline uppercase tracking-widest font-semibold block">Curated Chapters</span>
+        <h3 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Begin the Adventure</h3>
+      </div>
+      <span class="material-symbols-outlined text-outline">explore</span>
+    </div>
+    <div class="grid grid-cols-1 gap-space-sm">
+      <a class="group flex items-center p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] active:scale-[0.98]" href="#" onclick="go('story');return false">
+        <div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm mr-space-md group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">auto_stories</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <h4 class="font-headline text-base text-on-surface" style="font-family:'Playfair Display',serif">Our Journey</h4>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">arrow_forward</span>
+          </div>
+          <p class="text-[12px] text-on-surface-variant truncate">From the very first glance to our sacred vows</p>
+        </div>
+      </a>
+      <a class="group flex items-center p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] active:scale-[0.98]" href="#" onclick="go('moments');return false">
+        <div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm mr-space-md group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">photo_library</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <h4 class="font-headline text-base text-on-surface" style="font-family:'Playfair Display',serif">Special Memories</h4>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">arrow_forward</span>
+          </div>
+          <p class="text-[12px] text-on-surface-variant truncate">Treasured candid portraits and romantic trips</p>
+        </div>
+      </a>
+      <a class="group flex items-center p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] active:scale-[0.98]" href="#" onclick="go('wishes');return false">
+        <div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary flex items-center justify-center shrink-0 shadow-sm mr-space-md group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">mark_email_unread</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <h4 class="font-headline text-base text-on-surface" style="font-family:'Playfair Display',serif">Leave a Sweet Note</h4>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">arrow_forward</span>
+          </div>
+          <p class="text-[12px] text-on-surface-variant truncate">Gift your blessings to Asif & Shahzadi</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full px-gutter-mobile py-space-lg flex flex-col items-center text-center">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-6 h-[1px] bg-outline-variant"></span>
+      <span class="material-symbols-outlined text-[16px] text-primary filled">favorite</span>
+      <span class="w-6 h-[1px] bg-outline-variant"></span>
+    </div>
+    <span class="font-headline text-xl text-primary" style="font-family:'Playfair Display',serif">Asif & Shahzadi</span>
+    <p class="text-[10px] text-outline uppercase tracking-widest mt-1 font-semibold">Eternal Love &bull; Infinite Harmony</p>
+  </footer>
+</div>
+
+<!-- ======================== STORY PAGE ======================== -->
+<div class="page" id="page-story">
+  <!-- Header -->
+  <div class="relative pt-space-md text-center flex flex-col items-center px-gutter-mobile">
+    <div class="absolute -top-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed/40 text-primary mb-space-xs shadow-sm">
+      <span class="material-symbols-outlined text-[14px] filled">favorite</span>
+      <span class="text-[10px] uppercase tracking-widest font-semibold">A Sacred Journey</span>
+    </div>
+    <h1 class="text-3xl text-primary tracking-tight" style="font-family:'Playfair Display',serif;font-weight:600">The Story of Us</h1>
+    <p class="text-base italic text-on-surface-variant mt-1" style="font-family:'Playfair Display',serif">Har Lamha, Tumhare Saath</p>
+    <div class="flex items-center justify-center gap-2 mt-3 text-secondary">
+      <span class="h-[1px] w-12 bg-secondary-fixed-dim/60"></span>
+      <span class="material-symbols-outlined text-[16px]">all_inclusive</span>
+      <span class="h-[1px] w-12 bg-secondary-fixed-dim/60"></span>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="relative flex flex-col px-gutter-mobile py-space-lg">
+    <div class="absolute left-[42px] top-6 bottom-8 w-[2px] bg-gradient-to-b from-primary/30 via-secondary/40 to-primary/10 -z-0"></div>
+    <div class="space-y-space-xl" id="timelineContainer">
+      <!-- Milestone 1 -->
+      <div class="relative flex items-start gap-4 timeline-item" data-id="1">
+        <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(138,40,70,0.12)] flex items-center justify-center text-primary">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px] filled">local_cafe</span>
+          </div>
+        </div>
+        <div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md p-space-md shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] space-y-space-xs">
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-semibold editable-date">14 OCT 2021</span>
+            <div class="flex items-center text-outline gap-1 text-[12px]">
+              <span class="material-symbols-outlined text-[14px]">pin_drop</span>
+              <span class="editable-location">Espresso Studio, Lahore</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">Pehli Mulakat</h2>
+            <p class="italic text-on-surface text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">When eyes met and the universe smiled</p>
+          </div>
+          <p class="text-[12px] text-on-surface-variant editable-desc">A fleeting glance across vintage steam and artisanal ceramics turned into three hours of unspoken comfort. A single shared laughter rewrote tomorrow.</p>
+          <button class="flex items-center gap-1 text-primary text-[10px] font-semibold mt-1" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit this memory</button>
+        </div>
+      </div>
+
+      <!-- Milestone 2 -->
+      <div class="relative flex items-start gap-4 timeline-item" data-id="2">
+        <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(138,40,70,0.12)] flex items-center justify-center text-primary">
+          <div class="w-10 h-10 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined text-[20px]">directions_car</span>
+          </div>
+        </div>
+        <div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md p-space-md shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] space-y-space-xs">
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-tertiary-fixed/60 text-on-tertiary-fixed font-semibold editable-date">27 FEB 2022</span>
+            <div class="flex items-center text-outline gap-1 text-[12px]">
+              <span class="material-symbols-outlined text-[14px]">nightlight</span>
+              <span class="editable-location">Margalla Hills Ridge</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">The Midnight Drive</h2>
+            <p class="italic text-on-surface text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">Endless laughs under the starry night sky</p>
+          </div>
+          <p class="text-[12px] text-on-surface-variant editable-desc">Windows rolled down to the fragrant cool mountain breeze, old ghazals softly serenading the quiet dashboard, discovering we shared identical dreams.</p>
+          <div class="flex items-center gap-2 pt-1">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold">Playlist: Jagjit Singh</span>
+            <span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold">Midnight Chai</span>
+          </div>
+          <button class="flex items-center gap-1 text-primary text-[10px] font-semibold mt-1" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit this memory</button>
+        </div>
+      </div>
+
+      <!-- Milestone 3 - Proposal -->
+      <div class="relative flex items-start gap-4 timeline-item" data-id="3">
+        <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-primary text-on-primary shadow-[0_0_24px_rgba(138,40,70,0.4)] flex items-center justify-center">
+          <span class="material-symbols-outlined text-[22px] animate-pulse filled">diamond</span>
+        </div>
+        <div class="flex-1 rounded-xl bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest/90 to-primary-fixed/20 backdrop-blur-md p-space-md shadow-[0_8px_30px_rgba(138,40,70,0.1)] space-y-space-xs">
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-semibold shadow-sm editable-date">19 NOV 2023</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">THE PROPOSAL</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">The Unspoken Promise</h2>
+            <p class="italic text-primary-container text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">Two souls deciding on a lifetime together</p>
+          </div>
+          <p class="text-[12px] text-on-surface-variant editable-desc">Surrounded by hundreds of white tea-roses and glowing fairy lights, kneeling softly with tears of joy. A quiet whispered "Haan" that made the world pause.</p>
+          <button class="flex items-center gap-1 text-primary text-[10px] font-semibold mt-1" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit this memory</button>
+        </div>
+      </div>
+
+      <!-- Milestone 4 -->
+      <div class="relative flex items-start gap-4 timeline-item" data-id="4">
+        <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(138,40,70,0.12)] flex items-center justify-center text-primary">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px] filled">temple_buddhist</span>
+          </div>
+        </div>
+        <div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md p-space-md shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] space-y-space-xs">
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-semibold">COMING SOON</span>
+            <div class="flex items-center text-primary gap-1 text-[12px] font-medium">
+              <span class="material-symbols-outlined text-[14px]">celebration</span>
+              <span>The Grand Nikkah</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Nikkah & Forever</h2>
+            <p class="italic text-on-surface text-[15px] leading-snug" style="font-family:'Playfair Display',serif">A sacred bond written in the stars</p>
+          </div>
+          <div class="w-full p-space-xs rounded-lg bg-surface-container-high/60 flex items-center justify-between mt-1">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[18px]">event_available</span>
+              <span class="text-[12px] font-medium text-on-surface" id="nikkahDays">Loading...</span>
+            </div>
+            <span class="text-[10px] text-primary uppercase font-bold tracking-wider">Join Us</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add More Story Button -->
+    <button class="mt-6 w-full py-3 rounded-full border-2 border-dashed border-outline-variant text-primary text-[12px] font-semibold uppercase tracking-wider flex items-center justify-center gap-2 hover:border-primary hover:bg-primary-fixed/20 transition-all active:scale-[0.98]" onclick="addNewStory()">
+      <span class="material-symbols-outlined text-[18px]">add_circle</span> Add Another Memory
+    </button>
+  </div>
+
+  <!-- Diary Note -->
+  <div class="mx-gutter-mobile mb-space-lg rounded-xl bg-gradient-to-br from-primary via-primary-container to-tertiary text-on-primary p-space-lg shadow-xl relative overflow-hidden">
+    <div class="absolute -right-12 -bottom-12 w-40 h-40 rounded-full bg-secondary-fixed-dim/20 blur-2xl pointer-events-none"></div>
+    <div class="relative z-10 space-y-space-sm">
+      <div class="flex items-center justify-between">
+        <span class="text-[10px] tracking-widest text-secondary-fixed uppercase font-semibold">Shahzadi's Diary Note</span>
+        <span class="material-symbols-outlined text-[20px] text-secondary-fixed filled">format_quote</span>
+      </div>
+      <p class="italic leading-relaxed text-surface-bright text-[20px]" style="font-family:'Playfair Display',serif">
+        "From that first shy tea sip to sharing every prayer and sunset, loving you is the easiest thing my heart ever learned."
+      </p>
+      <div class="flex items-center justify-between pt-2">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full bg-surface-bright/20 flex items-center justify-center text-[12px] font-bold" style="font-family:'Playfair Display',serif">S</div>
+          <span class="text-[12px] text-primary-fixed">Written with love, for Asif</span>
+        </div>
+        <button class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 transition-all text-on-primary active:scale-95" id="diaryHeartBtn">
+          <span class="material-symbols-outlined text-[16px]" id="diaryHeartIcon">favorite_border</span>
+          <span class="text-[11px] font-semibold" id="diaryHeartCount">142</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contribute Memory -->
+  <div class="mx-gutter-mobile mb-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.08)] text-center space-y-space-sm">
+    <div class="w-12 h-12 rounded-full bg-primary-fixed/40 text-primary mx-auto flex items-center justify-center">
+      <span class="material-symbols-outlined text-[24px]">bookmark_add</span>
+    </div>
+    <div>
+      <h3 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Were You There?</h3>
+      <p class="text-[12px] text-on-surface-variant max-w-xs mx-auto mt-1">Have a photo or memorable moment with Asif & Shahzadi? Add your own chapter to their celebration journal.</p>
+    </div>
+    <button class="w-full py-3 px-space-lg rounded-full bg-primary text-on-primary font-medium shadow-md hover:opacity-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2" onclick="document.getElementById('memoryModal').classList.remove('hidden')">
+      <span class="material-symbols-outlined text-[18px]">add_a_photo</span>
+      <span>Contribute a Memory</span>
+    </button>
+  </div>
+
+  <!-- Submitted Memories List -->
+  <div id="submittedMemories" class="mx-gutter-mobile mb-space-lg space-y-3"></div>
+</div>
+
+<!-- ======================== MOMENTS PAGE ======================== -->
+<div class="page" id="page-moments">
+  <!-- Header -->
+  <div class="flex flex-col items-center text-center pt-space-xs space-y-1 px-gutter-mobile">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed/60 text-primary">
+      <span class="material-symbols-outlined text-[14px] filled">auto_awesome</span>
+      <span class="text-[10px] tracking-widest uppercase font-semibold">Hamare Yaadgaar Lamhe</span>
+    </div>
+    <h1 class="text-2xl text-primary tracking-tight" style="font-family:'Playfair Display',serif;font-weight:600">Captured Moments</h1>
+    <p class="text-[13px] text-on-surface-variant max-w-xs">Your private shared album. Tap to upload photos and save timeless milestones together.</p>
+  </div>
+
+  <!-- Featured Hero - Uploadable -->
+  <section class="relative w-full px-gutter-mobile pt-space-sm pb-space-sm">
+    <div class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-low group">
+      <div class="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-primary via-primary-container to-tertiary" id="heroMemoryContainer">
+        <img id="heroMemoryImg" alt="" class="absolute inset-0 w-full h-full object-cover hidden z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent z-10"></div>
+        <div class="absolute top-space-sm left-space-sm flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-sm z-20">
+          <span class="material-symbols-outlined text-[14px] text-secondary filled">favorite</span>
+          <span class="text-[10px] text-primary tracking-wider uppercase font-semibold">Featured Memory</span>
+        </div>
+        <button class="absolute top-space-sm right-space-sm w-10 h-10 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary shadow-sm active:scale-90 transition-transform z-20" id="heroLikeBtn">
+          <span class="material-symbols-outlined text-[20px] text-primary filled">favorite</span>
+        </button>
+        <!-- Upload Button for Hero -->
+        <label class="absolute bottom-16 right-space-sm z-20 w-10 h-10 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary shadow-sm active:scale-90 transition-transform cursor-pointer" title="Change featured photo">
+          <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+          <input type="file" accept="image/*" class="hidden" id="heroMemoryInput">
+        </label>
+        <div class="absolute bottom-0 inset-x-0 p-space-lg flex flex-col items-center text-center space-y-2 text-on-primary z-20">
+          <span class="material-symbols-outlined text-[22px] text-secondary-container opacity-90">format_quote</span>
+          <p class="text-[20px] leading-[28px] italic text-surface-container-lowest max-w-xs drop-shadow-sm" style="font-family:'Playfair Display',serif">"You are my today and all of my tomorrows."</p>
+          <div class="w-8 h-0.5 rounded-full bg-secondary-container/60 my-1"></div>
+          <div class="flex items-center gap-2 text-primary-fixed text-[13px]">
+            <span>Shahzadi & Asif</span>
+            <span class="inline-block w-1 h-1 rounded-full bg-secondary-container"></span>
+            <button class="flex items-center gap-1 font-semibold text-surface-container-lowest" id="heroLikesBtn">
+              <span class="material-symbols-outlined text-[15px] text-secondary-container filled">favorite</span> <span id="heroLikesNum">142</span> hearts
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Pills -->
+  <div class="flex items-center gap-2 overflow-x-auto py-1 px-gutter-mobile" style="-ms-overflow-style:none;scrollbar-width:none">
+    <button class="filter-tab px-4 py-2 rounded-full bg-primary text-on-primary text-[11px] font-semibold uppercase tracking-wider shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all" data-filter="all">
+      <span class="material-symbols-outlined text-[14px]">all_inclusive</span> All Memories
+    </button>
+    <button class="filter-tab px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all hover:bg-surface-container-high" data-filter="trips">
+      <span class="material-symbols-outlined text-[14px]">explore</span> Trips & Dates
+    </button>
+    <button class="filter-tab px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all hover:bg-surface-container-high" data-filter="candids">
+      <span class="material-symbols-outlined text-[14px]">sentiment_very_satisfied</span> Candid Smiles
+    </button>
+    <button class="filter-tab px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all hover:bg-surface-container-high" data-filter="celebrations">
+      <span class="material-symbols-outlined text-[14px]">celebration</span> Celebrations
+    </button>
+  </div>
+
+  <!-- Gallery -->
+  <div class="space-y-space-lg px-gutter-mobile pb-6" id="galleryContainer">
+    <!-- Upload Card -->
+    <div class="bg-surface-container-lowest p-4 rounded-xl shadow-md border-2 border-dashed border-outline-variant hover:border-primary transition-all duration-300 group cursor-pointer flex flex-col items-center justify-center py-8 text-center space-y-3" onclick="document.getElementById('uploadModal').classList.remove('hidden')">
+      <div class="w-16 h-16 rounded-full bg-primary-fixed/60 flex items-center justify-center text-primary group-hover:scale-105 group-hover:bg-primary-fixed transition-transform">
+        <span class="material-symbols-outlined text-[32px]">add_a_photo</span>
+      </div>
+      <div class="flex flex-col items-center max-w-xs">
+        <span class="font-headline text-base text-primary font-semibold" style="font-family:'Playfair Display',serif">Tap to Upload a Memory</span>
+        <p class="text-[12px] text-on-surface-variant mt-1">Select photos from your phone gallery or take a new picture</p>
+      </div>
+    </div>
+
+    <!-- Gallery Items -->
+    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="trips">
+      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-surface-container-low to-surface-container-high flex items-center justify-center">
+        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
+      </div>
+      <div class="px-1 mt-2">
+        <p class="text-[13px] text-on-surface font-semibold">Coffee Date at Espresso Studio</p>
+        <p class="text-[11px] text-on-surface-variant">First meeting moments</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-[10px] text-outline">Oct 2021</span>
+          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="47">
+            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
+            <span class="like-count">47+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="trips">
+      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-surface-container-low to-surface-container-high flex items-center justify-center">
+        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
+      </div>
+      <div class="px-1 mt-2">
+        <p class="text-[13px] text-on-surface font-semibold">Midnight Drive to Margalla</p>
+        <p class="text-[11px] text-on-surface-variant">Under the stars</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-[10px] text-outline">Feb 2022</span>
+          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="63">
+            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
+            <span class="like-count">63+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="celebrations">
+      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-primary-fixed/30 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[48px] text-primary/30">photo_library</span>
+      </div>
+      <div class="px-1 mt-2">
+        <p class="text-[13px] text-on-surface font-semibold">Proposal Night</p>
+        <p class="text-[11px] text-on-surface-variant">The most magical evening</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-[10px] text-outline">Nov 2023</span>
+          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="89">
+            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
+            <span class="like-count">89+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="candids">
+      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-tertiary-fixed/30 to-surface-container-low flex items-center justify-center">
+        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
+      </div>
+      <div class="px-1 mt-2">
+        <p class="text-[13px] text-on-surface font-semibold">Candid Smile</p>
+        <p class="text-[11px] text-on-surface-variant">That perfect moment</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-[10px] text-outline">2023</span>
+          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="35">
+            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
+            <span class="like-count">35+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Vignette -->
+  <div class="flex flex-col items-center text-center p-space-lg mx-gutter-mobile mb-6 rounded-xl bg-surface-container-low shadow-sm space-y-2">
+    <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+      <span class="material-symbols-outlined text-[22px]">history_edu</span>
+    </div>
+    <span class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">More memories unfolding</span>
+    <p class="text-[12px] text-on-surface-variant max-w-xs">Every second spent together writes another sweet line in our shared book of life.</p>
+  </div>
+
+  <!-- Floating CTA -->
+  <div class="fixed bottom-20 inset-x-0 flex justify-center z-40 px-gutter-mobile pointer-events-none">
+    <button class="pointer-events-auto flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 hover:bg-primary-container active:scale-95 transition-all duration-300" onclick="document.getElementById('uploadModal').classList.remove('hidden')">
+      <span class="material-symbols-outlined text-[20px] text-secondary-fixed">photo_camera</span>
+      <span class="text-[11px] uppercase tracking-widest font-semibold">Upload a New Memory</span>
+    </button>
+  </div>
+</div>
+
+<!-- ======================== WISHES PAGE ======================== -->
+<div class="page" id="page-wishes">
+  <!-- Ambient Glows -->
+  <div class="absolute -top-12 -left-16 w-56 h-56 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-96 -right-16 w-64 h-64 bg-secondary-fixed/25 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="pointer-events-none fixed inset-0 z-10 overflow-hidden" id="petalCanvas"></div>
+
+  <!-- Photo Upload -->
+  <section class="w-full px-gutter-mobile pt-space-sm pb-space-md">
+    <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden">
+      <input type="file" accept="image/*" class="hidden">
+      <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs">
+        <span class="material-symbols-outlined text-[26px]">add_a_photo</span>
+      </div>
+      <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif">Add Couple Thank You Photo</span>
+      <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
+      <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
+    </label>
+  </section>
+
+  <!-- Love Lock -->
+  <section class="w-full px-gutter-mobile pb-space-md">
+    <div class="w-full bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] relative overflow-hidden">
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <span class="text-[10px] text-secondary uppercase font-semibold">Virtual Heirloom</span>
+          <h2 class="font-headline text-base text-primary mt-0.5" style="font-family:'Playfair Display',serif">The Eternal Love Lock</h2>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-secondary-fixed/40 flex items-center justify-center text-secondary">
+          <span class="material-symbols-outlined text-[22px]">lock</span>
+        </div>
+      </div>
+      <p class="text-[12px] text-on-surface-variant mt-space-xs">Fasten your blessed prayers onto Asif & Shahzadi's eternal golden bridge of memories.</p>
+      <div class="mt-space-md relative flex flex-col items-center justify-center py-space-lg bg-surface-container/60 rounded-xl">
+        <div class="absolute top-2 left-4 text-xs opacity-60">&#x1F338;</div>
+        <div class="absolute bottom-3 right-5 text-xs opacity-60">&#x2728;</div>
+        <div class="relative cursor-pointer transition-transform duration-300 hover:scale-105" id="loveLockContainer">
+          <div class="w-32 h-36 bg-gradient-to-b from-secondary-fixed to-secondary-container rounded-3xl shadow-md flex flex-col items-center justify-center p-space-sm relative">
+            <div class="absolute -top-7 w-16 h-14 rounded-t-full shadow-inner flex items-center justify-center" style="box-shadow: inset 0 6px 0 6px #735c00;"></div>
+            <div class="w-10 h-10 rounded-full bg-surface-container-lowest/50 flex items-center justify-center text-primary shadow-inner mb-1">
+              <span class="material-symbols-outlined text-[22px] filled">favorite</span>
+            </div>
+            <span class="text-[10px] text-on-secondary-fixed uppercase text-center font-bold tracking-tight px-1 line-clamp-2" id="lockText">A & S Forever</span>
+            <span class="text-[8px] text-secondary font-medium mt-1">LOCKED #428</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-xs mt-space-md w-full px-space-sm">
+          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockInput" maxlength="24" placeholder="Engrave your initials or note..." type="text">
+          <button class="bg-primary text-on-primary text-[11px] uppercase px-space-md py-2.5 rounded-full shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1 active:scale-95 font-semibold" id="lockBtn" type="button">
+            <span class="material-symbols-outlined text-[16px]">key</span>
+            <span>Lock</span>
+          </button>
+        </div>
+        <p class="text-[12px] text-primary font-medium mt-2 hidden transition-all" id="lockToast">&#x2728; Your prayer was locked in the golden archive!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Send Love Note -->
+  <section class="w-full px-gutter-mobile pb-space-md">
+    <div class="w-full bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-space-lg shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] relative">
+      <div class="flex items-center gap-space-xs mb-space-sm">
+        <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-[18px]">draw</span>
+        </div>
+        <div>
+          <h2 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Send a Love Note</h2>
+          <span class="text-[10px] text-outline uppercase tracking-wider font-semibold">Leave a Dua & Keepsake</span>
+        </div>
+      </div>
+      <div class="space-y-space-xs mt-space-sm">
+        <input class="w-full text-[13px] bg-surface-container-low text-on-surface px-space-md py-space-sm rounded-lg placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-sm" id="noteAuthor" placeholder="Your Name & Relation" type="text">
+        <textarea class="w-full text-[13px] bg-surface-container-low text-on-surface p-space-md rounded-lg placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest transition-colors resize-none shadow-sm" id="noteMsg" placeholder="Write a sweet blessing, prayer, or memory..." rows="3"></textarea>
+      </div>
+      <div class="mt-space-sm">
+        <span class="text-[10px] text-outline uppercase block mb-1 font-semibold">Add a sticker blessing</span>
+        <div class="flex items-center gap-space-xs overflow-x-auto py-1">
+          <button class="sticker-btn text-lg p-2 rounded-full bg-surface-container hover:bg-primary-fixed/40 transition-transform active:scale-90" data-emoji="&#x1F339;">&#x1F339;</button>
+          <button class="sticker-btn text-lg p-2 rounded-full bg-surface-container hover:bg-primary-fixed/40 transition-transform active:scale-90" data-emoji="&#x1F48D;">&#x1F48D;</button>
+          <button class="sticker-btn text-lg p-2 rounded-full bg-primary-fixed/40 transition-transform active:scale-90" data-emoji="&#x1F48C;">&#x1F48C;</button>
+          <button class="sticker-btn text-lg p-2 rounded-full bg-surface-container hover:bg-primary-fixed/40 transition-transform active:scale-90" data-emoji="&#x2764;&#xFE0F;">&#x2764;&#xFE0F;</button>
+          <button class="sticker-btn text-lg p-2 rounded-full bg-surface-container hover:bg-primary-fixed/40 transition-transform active:scale-90" data-emoji="&#x1F331;">&#x1F331;</button>
+        </div>
+      </div>
+      <div class="mt-space-md p-space-md rounded-lg bg-surface-container-low/70 shadow-inner" id="previewBox">
+        <div class="flex items-center justify-between">
+          <span class="text-[9px] text-primary uppercase font-bold tracking-widest">Live Note Preview</span>
+          <span class="text-base" id="previewEmoji">&#x1F48C;</span>
+        </div>
+        <p class="italic text-on-surface-variant text-[14px] mt-1" id="previewText" style="font-family:'Playfair Display',serif">"May your union be showered with endless divine light, companionship, and boundless happiness."</p>
+        <span class="block text-[11px] text-secondary font-semibold mt-2" id="previewAuthor">&mdash; From a loving guest</span>
+      </div>
+      <button class="w-full mt-space-md bg-primary text-on-primary text-[11px] uppercase tracking-wider py-3 rounded-full shadow-md flex items-center justify-center gap-space-xs hover:opacity-95 transition-transform active:scale-[0.98] font-semibold" id="postNoteBtn" type="button">
+        <span class="material-symbols-outlined text-[18px]">send</span>
+        <span>Seal & Post Note</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Quranic Quote -->
+  <div class="w-full py-space-sm flex flex-col items-center text-center px-space-md">
+    <div class="text-secondary opacity-60 text-xl" style="font-family:'Playfair Display',serif">&ldquo;</div>
+    <p class="text-lg text-primary leading-snug -mt-2" style="font-family:'Playfair Display',serif">And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them.</p>
+    <span class="text-[10px] text-outline uppercase tracking-widest mt-2 font-semibold">Surah Ar-Rum 30:21</span>
+  </div>
+
+  <!-- Wall of Wishes -->
+  <section class="w-full px-gutter-mobile pb-space-lg space-y-space-md">
+    <div class="flex items-center justify-between px-1">
+      <div class="flex items-center gap-2">
+        <h3 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Warm Duaayein</h3>
+        <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold" id="wishCount">3</span>
+      </div>
+    </div>
+    <div class="space-y-space-sm" id="wishesWall">
+      <article class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm transition-all hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold shadow-sm" style="font-family:'Playfair Display',serif">HF</div>
+            <div><h4 class="text-[13px] font-semibold text-on-surface">Hamza & Fatima</h4><span class="text-[9px] text-outline">Groom's Brother</span></div>
+          </div>
+          <span class="text-xl">&#x1F339;</span>
+        </div>
+        <p class="text-[13px] text-on-surface-variant mt-space-sm leading-relaxed">May Allah bless Asif and Shahzadi with endless happiness, barakah, and an unbreakable bond! Cutest couple forever! &#x2764;&#xFE0F;</p>
+        <div class="flex items-center justify-between mt-space-sm pt-2">
+          <button class="wish-heart-btn flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-[12px]" type="button">
+            <span class="material-symbols-outlined text-[18px] filled">favorite</span>
+            <span class="count">24</span>
+          </button>
+          <span class="text-[9px] text-secondary font-medium tracking-wide bg-secondary-fixed/30 px-2 py-0.5 rounded-full">Locked with Love</span>
+        </div>
+      </article>
+
+      <article class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm transition-all hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold shadow-sm" style="font-family:'Playfair Display',serif">AM</div>
+            <div><h4 class="text-[13px] font-semibold text-on-surface">Auntie Mehnaz</h4><span class="text-[9px] text-outline">Shahzadi's Khala</span></div>
+          </div>
+          <span class="text-xl">&#x2728;</span>
+        </div>
+        <p class="text-[13px] text-on-surface-variant mt-space-sm leading-relaxed">Mera pyaara bacha Asif and our darling Shahzadi. Nazar na lage dono ko! Endless prayers from the Lahore family!</p>
+        <div class="flex items-center justify-between mt-space-sm pt-2">
+          <button class="wish-heart-btn flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-[12px]" type="button">
+            <span class="material-symbols-outlined text-[18px] filled">favorite</span>
+            <span class="count">41</span>
+          </button>
+          <span class="text-[9px] text-secondary font-medium tracking-wide bg-secondary-fixed/30 px-2 py-0.5 rounded-full">Locked with Love</span>
+        </div>
+      </article>
+
+      <article class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm transition-all hover:shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed font-bold shadow-sm" style="font-family:'Playfair Display',serif">TR</div>
+            <div><h4 class="text-[13px] font-semibold text-on-surface">Tariq & Rania</h4><span class="text-[9px] text-outline">University Squad</span></div>
+          </div>
+          <span class="text-xl">&#x1F48D;</span>
+        </div>
+        <p class="text-[13px] text-on-surface-variant mt-space-sm leading-relaxed">From late-night thesis talks to the wedding aisle! Couldn't be prouder of you Asif bhai. Wishing you laughter that never dims.</p>
+        <div class="flex items-center justify-between mt-space-sm pt-2">
+          <button class="wish-heart-btn flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-[12px]" type="button">
+            <span class="material-symbols-outlined text-[18px] filled">favorite</span>
+            <span class="count">19</span>
+          </button>
+          <span class="text-[9px] text-secondary font-medium tracking-wide bg-secondary-fixed/30 px-2 py-0.5 rounded-full">Locked with Love</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ======================== BOTTOM NAV ======================== -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_24px_-2px_rgba(138,40,70,0.08)]">
+  <div class="flex items-center justify-around h-16 px-space-xs">
+    <button class="nav-btn flex flex-col items-center justify-center w-16 h-14 text-primary font-medium transition-colors" data-page="home">
+      <span class="material-symbols-outlined text-[22px] filled">favorite</span>
+      <span class="text-[10px] tracking-normal mt-0.5 font-semibold">Home</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant hover:text-primary transition-colors" data-page="story">
+      <span class="material-symbols-outlined text-[22px]">auto_stories</span>
+      <span class="text-[10px] tracking-normal mt-0.5 font-semibold">Story</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant hover:text-primary transition-colors" data-page="moments">
+      <span class="material-symbols-outlined text-[22px]">photo_camera</span>
+      <span class="text-[10px] tracking-normal mt-0.5 font-semibold">Moments</span>
+    </button>
+    <button class="nav-btn flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant hover:text-primary transition-colors" data-page="wishes">
+      <span class="material-symbols-outlined text-[22px]">mark_email_unread</span>
+      <span class="text-[10px] tracking-normal mt-0.5 font-semibold">Wishes</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ======================== MODALS ======================== -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-4 hidden" id="uploadModal">
+  <div class="w-full max-w-md bg-surface-container-lowest rounded-2xl p-space-lg shadow-2xl space-y-space-md slide-up">
+    <div class="flex items-center justify-between">
+      <span class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Add a Memory</span>
+      <button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="document.getElementById('uploadModal').classList.add('hidden')">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <label class="border-2 border-dashed border-outline-variant hover:border-primary rounded-xl p-space-lg flex flex-col items-center text-center space-y-2 bg-surface-container-low/50 cursor-pointer transition-colors duration-200 w-full block">
+      <span class="material-symbols-outlined text-primary text-[32px]">cloud_upload</span>
+      <span class="text-[13px] text-primary font-medium">Tap to select picture from phone</span>
+      <span class="text-[11px] text-outline">PNG, JPG, HEIC up to 25MB</span>
+      <input type="file" accept="image/*" class="hidden" id="galleryFileInput">
+    </label>
+    <img id="galleryPreview" alt="" class="w-full h-40 object-cover rounded-lg hidden">
+    <input class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low text-on-surface text-[13px] placeholder:text-outline/70 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g., Cozy winter evening..." type="text" id="galleryCaption">
+    <select class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none focus:ring-1 focus:ring-primary" id="galleryCategory">
+      <option value="trips">Trips & Dates</option>
+      <option value="candids">Candid Smiles</option>
+      <option value="celebrations">Celebrations</option>
+    </select>
+    <button class="w-full py-3 rounded-full bg-primary text-on-primary text-[11px] uppercase tracking-widest text-center shadow-md active:scale-[0.98] transition-all font-semibold" id="publishGalleryBtn">Publish to Storyboard</button>
+  </div>
+</div>
+
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-4 hidden" id="memoryModal">
+  <div class="w-full max-w-sm rounded-xl bg-surface-container-lowest p-space-lg shadow-2xl space-y-space-sm slide-up">
+    <div class="flex items-center justify-between">
+      <h4 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Share a Memory</h4>
+      <button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="document.getElementById('memoryModal').classList.add('hidden')">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <p class="text-[12px] text-on-surface-variant">Your message will be preserved in their wedding keepsake book.</p>
+    <input class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low text-on-surface text-[13px] placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest" placeholder="Your Name" type="text" id="memName">
+    <textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest resize-none" placeholder="Tell us your sweetest memory..." rows="3" id="memText"></textarea>
+    <div class="pt-2 flex gap-2">
+      <button class="flex-1 py-2.5 rounded-full bg-surface-container text-[13px] text-on-surface font-medium" onclick="document.getElementById('memoryModal').classList.add('hidden')">Cancel</button>
+      <button class="flex-1 py-2.5 rounded-full bg-primary text-on-primary text-[13px] font-medium shadow" onclick="submitMemory()">Send Dua</button>
+    </div>
+  </div>
+</div>
+
+<!-- Letter Edit Modal -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-4 hidden" id="letterModal">
+  <div class="w-full max-w-sm rounded-xl bg-surface-container-lowest p-space-lg shadow-2xl space-y-space-sm slide-up">
+    <div class="flex items-center justify-between">
+      <h4 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Edit Letter</h4>
+      <button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="document.getElementById('letterModal').classList.add('hidden')">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[14px] placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest resize-none" placeholder="Write your letter..." rows="5" id="letterText"></textarea>
+    <div class="pt-2 flex gap-2">
+      <button class="flex-1 py-2.5 rounded-full bg-surface-container text-[13px] text-on-surface font-medium" onclick="document.getElementById('letterModal').classList.add('hidden')">Cancel</button>
+      <button class="flex-1 py-2.5 rounded-full bg-primary text-on-primary text-[13px] font-medium shadow" onclick="saveLetter()">Save Letter</button>
+    </div>
+  </div>
+</div>
+
+<!-- Story Edit Modal -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-4 hidden" id="storyEditModal">
+  <div class="w-full max-w-sm rounded-xl bg-surface-container-lowest p-space-lg shadow-2xl space-y-space-sm slide-up">
+    <div class="flex items-center justify-between">
+      <h4 class="font-headline text-base text-primary" style="font-family:'Playfair Display',serif">Edit Story</h4>
+      <button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="document.getElementById('storyEditModal').classList.add('hidden')">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="Date (e.g., 14 OCT 2021)" type="text" id="editDate">
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="Location" type="text" id="editLocation">
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="Title" type="text" id="editTitle">
+    <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="Subtitle" type="text" id="editSubtitle">
+    <textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none resize-none" placeholder="Description" rows="3" id="editDesc"></textarea>
+    <div class="pt-2 flex gap-2">
+      <button class="flex-1 py-2.5 rounded-full bg-surface-container text-[13px] text-on-surface font-medium" onclick="document.getElementById('storyEditModal').classList.add('hidden')">Cancel</button>
+      <button class="flex-1 py-2.5 rounded-full bg-primary text-on-primary text-[13px] font-medium shadow" onclick="saveStoryEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+// Navigation
+function go(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    const icon = b.querySelector('.material-symbols-outlined');
+    b.classList.remove('text-primary', 'font-medium');
+    b.classList.add('text-on-surface-variant');
+    icon.classList.remove('filled');
+    if (b.dataset.page === page) {
+      b.classList.add('text-primary', 'font-medium');
+      icon.classList.add('filled');
+    }
+  });
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', () => go(b.dataset.page)));
+
+// Countdown - 14 Oct 2021
+const startDate = new Date(2021, 9, 14);
+function updateCountdown() {
+  const now = new Date(), diff = now - startDate;
+  const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5), m = Math.floor(diff % 36e5 / 6e4), s = Math.floor(diff % 6e4 / 1e3);
+  document.getElementById('cDays').textContent = d;
+  document.getElementById('cHrs').textContent = h;
+  document.getElementById('cMin').textContent = m < 10 ? '0' + m : m;
+  document.getElementById('cSec').textContent = s < 10 ? '0' + s : s;
+  document.getElementById('daysBadge').textContent = d + '+ Days';
+  document.getElementById('nikkahDays').textContent = d + ' days together';
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Hero Cover Photo + Change
+document.getElementById('heroInput').onchange = function(e) { handleHeroCover(e); };
+document.getElementById('heroChangeInput').onchange = function(e) { handleHeroCover(e); };
+function handleHeroCover(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('heroCover').src = ev.target.result;
+    document.getElementById('heroCover').classList.remove('hidden');
+    document.getElementById('heroOverlay').classList.remove('hidden');
+    document.getElementById('heroPrompt').style.display = 'none';
+    document.getElementById('heroChangeBtn').classList.remove('hidden');
+    localStorage.setItem('heroCover', ev.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+// Restore cover from localStorage
+(function() {
+  const saved = localStorage.getItem('heroCover');
+  if (saved) {
+    document.getElementById('heroCover').src = saved;
+    document.getElementById('heroCover').classList.remove('hidden');
+    document.getElementById('heroOverlay').classList.remove('hidden');
+    document.getElementById('heroPrompt').style.display = 'none';
+    document.getElementById('heroChangeBtn').classList.remove('hidden');
+  }
+})();
+
+// Quotes - 3 Languages
+const quotes = [
+  { en: '"In your eyes, I found the sanctuary my heart had sought in every lifetime. You are the poem my soul always wanted to write."', hi: '"तुम्हारी आँखों में मैंने वो सुकून पाया जिसकी तलाश मेरे दिल को हर जन्म में थी। तुम वो कविता हो जो मेरी रूह हमेशा लिखना चाहती थी."', hing: '"Tumhari aankhon mein maine woh sukoon paaya jiski talaash mere dil ko har janam mein thi. Tum woh kavita ho jo meri rooh hamesha likhna chahti thi."' },
+  { en: '"Every love story is beautiful, but ours is my favorite. From the first glance to forever, you are my everything."', hi: '"हर प्रेम कहानी खूबसूरत है, लेकिन हमारी सबसे प्यारी है। पहली नज़र से लेकर हमेशा तक, तुम मेरी सब कुछ हो."', hing: '"Har love story beautiful hai, lekin hamari sabse pyaari hai. Pehli nazar se lekar hamesha tak, tum meri sab kuch ho."' },
+  { en: '"Tujh mein rab dikhta hai, yaara main kya karoon. Har saans mein bas tera naam hai."', hi: '"तुझ में रब दिखता है, यारा मैं क्या करूँ। हर सांस में बस तेरा नाम है।"', hing: '"Tujh mein rab dikhta hai, yaara main kya karoon. Har saans mein bas tera naam hai."' },
+  { en: '"Two souls sculpted for one another, hand in hand forevermore. Our love is the universe\'s favorite symphony."', hi: '"दो आत्माएँ जो एक-दूसरे के लिए बनी हैं, हाथ में हाथ डाले हमेशा। हमारा प्यार ब्रह्मांड की सबसे प्यारी सिम्फनी है."', hing: '"Do aatmaayein jo ek-doosre ke liye bani hain, haath mein haath daale hamesha. Hamara pyaar brahmand ki sabse pyaari symphony hai."' }
+];
+let qIdx = 0;
+document.getElementById('nextQuoteBtn').onclick = () => {
+  qIdx = (qIdx + 1) % quotes.length;
+  const q = quotes[qIdx];
+  ['quoteEn', 'quoteHi', 'quoteHiNg'].forEach(id => {
+    document.getElementById(id).style.opacity = '0';
+  });
+  setTimeout(() => {
+    document.getElementById('quoteEn').textContent = q.en;
+    document.getElementById('quoteHi').textContent = q.hi;
+    document.getElementById('quoteHiNg').textContent = q.hing;
+    ['quoteEn', 'quoteHi', 'quoteHiNg'].forEach(id => {
+      document.getElementById(id).style.opacity = '1';
+    });
+  }, 200);
+};
+let quoteLiked = false;
+document.getElementById('likeQuoteBtn').onclick = () => {
+  quoteLiked = !quoteLiked;
+  const h = document.getElementById('quoteHeart');
+  h.style.fontVariationSettings = quoteLiked ? "'FILL' 1" : "'FILL' 0";
+  h.classList.toggle('text-primary', quoteLiked);
+  if (quoteLiked) { h.classList.add('pop'); setTimeout(() => h.classList.remove('pop'), 300); }
+};
+
+// Diary Heart (localStorage)
+let diaryLiked = JSON.parse(localStorage.getItem('diaryLiked') || 'false');
+let diaryCount = parseInt(localStorage.getItem('diaryCount') || '142');
+function updateDiary() {
+  const icon = document.getElementById('diaryHeartIcon'), cnt = document.getElementById('diaryHeartCount');
+  icon.textContent = diaryLiked ? 'favorite' : 'favorite_border';
+  icon.style.fontVariationSettings = diaryLiked ? "'FILL' 1" : "'FILL' 0";
+  cnt.textContent = diaryCount;
+}
+updateDiary();
+document.getElementById('diaryHeartBtn').onclick = () => {
+  diaryLiked = !diaryLiked;
+  diaryCount += diaryLiked ? 1 : -1;
+  localStorage.setItem('diaryLiked', diaryLiked);
+  localStorage.setItem('diaryCount', diaryCount);
+  updateDiary();
+  document.getElementById('diaryHeartIcon').classList.add('pop');
+  setTimeout(() => document.getElementById('diaryHeartIcon').classList.remove('pop'), 300);
+};
+
+// Hero Likes (localStorage)
+let heroLiked = JSON.parse(localStorage.getItem('heroLiked') || 'false');
+let heroCount = parseInt(localStorage.getItem('heroCount') || '142');
+function updateHero() { document.getElementById('heroLikesNum').textContent = heroCount; }
+updateHero();
+document.getElementById('heroLikeBtn').onclick = document.getElementById('heroLikesBtn').onclick = () => {
+  heroLiked = !heroLiked; heroCount += heroLiked ? 1 : -1;
+  localStorage.setItem('heroLiked', heroLiked); localStorage.setItem('heroCount', heroCount);
+  updateHero();
+};
+
+// Hero Memory Photo Upload
+document.getElementById('heroMemoryInput').onchange = function(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('heroMemoryImg').src = ev.target.result;
+    document.getElementById('heroMemoryImg').classList.remove('hidden');
+    localStorage.setItem('heroMemory', ev.target.result);
+  };
+  reader.readAsDataURL(file);
+};
+(function() {
+  const saved = localStorage.getItem('heroMemory');
+  if (saved) {
+    document.getElementById('heroMemoryImg').src = saved;
+    document.getElementById('heroMemoryImg').classList.remove('hidden');
+  }
+})();
+
+// Gallery Like Buttons
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.like-btn'); if (!btn) return;
+  const icon = btn.querySelector('.heart-icon'), cnt = btn.querySelector('.like-count');
+  let liked = btn.dataset.liked === 'true', count = parseInt(btn.dataset.count) || 0;
+  liked = !liked; count += liked ? 1 : -1;
+  btn.dataset.liked = liked; btn.dataset.count = count;
+  icon.textContent = liked ? 'favorite' : 'favorite_border';
+  icon.style.fontVariationSettings = liked ? "'FILL' 1" : "'FILL' 0";
+  cnt.textContent = count + '+';
+  if (liked) { icon.classList.add('pop'); setTimeout(() => icon.classList.remove('pop'), 300); }
+});
+
+// Gallery Filters
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.filter-tab').forEach(t => {
+      t.classList.remove('bg-primary', 'text-on-primary');
+      t.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+    tab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    tab.classList.add('bg-primary', 'text-on-primary');
+    const f = tab.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.display = (f === 'all' || item.dataset.category === f) ? 'block' : 'none';
+    });
+  };
+});
+
+// Gallery Upload - Preview & Publish
+document.getElementById('galleryFileInput').onchange = function(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('galleryPreview').src = ev.target.result;
+    document.getElementById('galleryPreview').classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
+};
+document.getElementById('publishGalleryBtn').onclick = function() {
+  const preview = document.getElementById('galleryPreview');
+  const caption = document.getElementById('galleryCaption').value.trim() || 'New Memory';
+  const category = document.getElementById('galleryCategory').value;
+  const imgSrc = preview.src || '';
+  if (!imgSrc || preview.classList.contains('hidden')) { alert('Please select a photo first!'); return; }
+  const card = document.createElement('div');
+  card.className = 'gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md';
+  card.dataset.category = category;
+  card.style.animation = 'fadeIn .4s ease';
+  card.innerHTML = `
+    <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+      <img src="${imgSrc}" class="w-full h-full object-cover">
+    </div>
+    <div class="px-1 mt-2">
+      <p class="text-[13px] text-on-surface font-semibold">${caption}</p>
+      <p class="text-[11px] text-on-surface-variant">Just now</p>
+      <div class="flex items-center justify-between mt-2">
+        <span class="text-[10px] text-outline">Today</span>
+        <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="0">
+          <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
+          <span class="like-count">0+</span>
+        </button>
+      </div>
+    </div>`;
+  document.getElementById('galleryContainer').appendChild(card);
+  document.getElementById('galleryPreview').classList.add('hidden');
+  document.getElementById('galleryCaption').value = '';
+  document.getElementById('uploadModal').classList.add('hidden');
+};
+
+// Love Lock
+document.getElementById('lockBtn').onclick = () => {
+  const v = document.getElementById('lockInput').value.trim();
+  if (v) {
+    document.getElementById('lockText').textContent = v;
+    document.getElementById('lockInput').value = '';
+    const t = document.getElementById('lockToast');
+    t.classList.remove('hidden');
+    setTimeout(() => t.classList.add('hidden'), 3500);
+  }
+};
+
+// Sticker Selection & Live Preview
+let selectedEmoji = '\u{1F48C}';
+document.querySelectorAll('.sticker-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.sticker-btn').forEach(b => b.classList.remove('bg-primary-fixed/40'));
+    btn.classList.add('bg-primary-fixed/40');
+    selectedEmoji = btn.dataset.emoji;
+    document.getElementById('previewEmoji').textContent = selectedEmoji;
+  };
+});
+document.getElementById('noteMsg').oninput = function () {
+  const v = this.value.trim();
+  document.getElementById('previewText').textContent = v ? '"' + v + '"' : '"May your union be showered with endless divine light, companionship, and boundless happiness."';
+};
+document.getElementById('noteAuthor').oninput = function () {
+  const v = this.value.trim();
+  document.getElementById('previewAuthor').textContent = v ? '\u2014 ' + v : '\u2014 From a loving guest';
+};
+
+// Post Wish to Wall
+document.getElementById('postNoteBtn').onclick = () => {
+  const name = document.getElementById('noteAuthor').value.trim() || 'Well Wisher';
+  const msg = document.getElementById('noteMsg').value.trim() || 'Wishing Asif & Shahzadi a lifetime of love and unyielding happiness!';
+  const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'WW';
+  const card = document.createElement('article');
+  card.className = 'p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm transition-all';
+  card.style.animation = 'fadeIn .4s ease';
+  card.innerHTML = `
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold shadow-sm" style="font-family:'Playfair Display',serif">${initials}</div>
+        <div><h4 class="text-[13px] font-semibold text-on-surface">${name}</h4><span class="text-[9px] text-outline">Just Now &bull; Honored Guest</span></div>
+      </div>
+      <span class="text-xl">${selectedEmoji}</span>
+    </div>
+    <p class="text-[13px] text-on-surface-variant mt-space-sm leading-relaxed">${msg}</p>
+    <div class="flex items-center justify-between mt-space-sm pt-2">
+      <button type="button" class="wish-heart-btn flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-[12px]">
+        <span class="material-symbols-outlined text-[18px] filled">favorite</span><span class="count">1</span>
+      </button>
+      <span class="text-[9px] text-secondary font-medium tracking-wide bg-secondary-fixed/30 px-2 py-0.5 rounded-full">New Blessing</span>
+    </div>`;
+  document.getElementById('wishesWall').prepend(card);
+  document.getElementById('noteMsg').value = '';
+  document.getElementById('noteAuthor').value = '';
+  document.getElementById('previewText').textContent = '"May your union be showered with endless divine light, companionship, and boundless happiness."';
+  document.getElementById('previewAuthor').textContent = '\u2014 From a loving guest';
+  let c = parseInt(document.getElementById('wishCount').textContent) || 3;
+  document.getElementById('wishCount').textContent = c + 1;
+};
+
+// Wish Heart Delegation
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.wish-heart-btn'); if (!btn) return;
+  const cnt = btn.querySelector('.count');
+  let c = parseInt(cnt.textContent) || 0;
+  cnt.textContent = c + 1;
+  btn.classList.add('text-primary');
+});
+
+// Floating Petals
+function createPetals() {
+  const canvas = document.getElementById('petalCanvas'); if (!canvas) return;
+  canvas.innerHTML = '';
+  const chars = ['\u{1F338}', '\u{1F33A}', '\u{1F343}', '\u{2728}'];
+  for (let i = 0; i < 8; i++) {
+    const p = document.createElement('div');
+    p.textContent = chars[Math.floor(Math.random() * chars.length)];
+    p.className = 'absolute text-sm select-none opacity-40 transition-transform';
+    p.style.left = (Math.random() * 95) + '%';
+    p.style.top = (Math.random() * 85) + '%';
+    p.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.7 + Math.random() * 0.5})`;
+    canvas.appendChild(p);
+  }
+}
+createPetals();
+
+// Submit Memory (Contribute a Memory) - Actually posts to wall
+function submitMemory() {
+  const name = document.getElementById('memName').value.trim() || 'Guest';
+  const text = document.getElementById('memText').value.trim() || 'A beautiful memory shared!';
+  const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'GM';
+  const card = document.createElement('div');
+  card.className = 'rounded-xl bg-surface-container-lowest/90 backdrop-blur-md p-space-md shadow-md';
+  card.style.animation = 'fadeIn .4s ease';
+  card.innerHTML = `
+    <div class="flex items-center gap-space-sm mb-2">
+      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold shadow-sm" style="font-family:'Playfair Display',serif">${initials}</div>
+      <div>
+        <h4 class="text-[13px] font-semibold text-on-surface">${name}</h4>
+        <span class="text-[9px] text-outline">Just Shared &bull; Memory</span>
+      </div>
+    </div>
+    <p class="text-[13px] text-on-surface-variant leading-relaxed italic" style="font-family:'Playfair Display',serif">"${text}"</p>
+    <div class="flex items-center justify-between mt-2 pt-2 border-t border-outline-variant/30">
+      <span class="text-[9px] text-primary font-semibold uppercase tracking-wider">Memory Shared</span>
+      <span class="material-symbols-outlined text-[14px] text-primary filled">favorite</span>
+    </div>`;
+  document.getElementById('submittedMemories').prepend(card);
+  document.getElementById('memName').value = '';
+  document.getElementById('memText').value = '';
+  document.getElementById('memoryModal').classList.add('hidden');
+}
+
+// Edit Letter for Shahzadi
+let currentNoteText = document.getElementById('noteForShahzadi').textContent;
+function saveLetter() {
+  const text = document.getElementById('letterText').value.trim();
+  if (!text) return;
+  const isEditing = document.getElementById('letterText').dataset.editing === 'true';
+  if (isEditing) {
+    document.getElementById('noteForShahzadi').textContent = '"' + text + '"';
+    document.getElementById('letterText').dataset.editing = 'false';
+  } else {
+    const letter = document.createElement('div');
+    letter.className = 'p-space-md rounded-xl bg-primary-fixed/20 shadow-sm';
+    letter.innerHTML = `
+      <p class="text-[14px] text-on-surface italic leading-relaxed" style="font-family:'Playfair Display',serif">"${text}"</p>
+      <div class="flex items-center justify-between mt-2">
+        <span class="text-[10px] text-outline">From Asif</span>
+        <button class="text-primary text-[10px] font-semibold flex items-center gap-1" onclick="editThisLetter(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit</button>
+      </div>`;
+    document.getElementById('savedLetters').appendChild(letter);
+  }
+  document.getElementById('letterModal').classList.add('hidden');
+  document.getElementById('letterText').value = '';
+}
+function editThisLetter(btn) {
+  const card = btn.closest('.rounded-xl');
+  const text = card.querySelector('p').textContent.replace(/^"|"$/g, '');
+  document.getElementById('letterText').value = text;
+  document.getElementById('letterText').dataset.editing = 'true';
+  card.remove();
+  document.getElementById('letterModal').classList.remove('hidden');
+}
+document.getElementById('noteForShahzadi').onclick = function() {
+  const text = this.textContent.replace(/^"|"$/g, '');
+  document.getElementById('letterText').value = text;
+  document.getElementById('letterText').dataset.editing = 'true';
+  document.getElementById('letterModal').classList.remove('hidden');
+};
+
+// Edit Timeline Item
+let editingTimelineItem = null;
+function editTimelineItem(btn) {
+  const item = btn.closest('.timeline-item');
+  editingTimelineItem = item;
+  document.getElementById('editDate').value = item.querySelector('.editable-date').textContent;
+  document.getElementById('editLocation').value = item.querySelector('.editable-location').textContent;
+  document.getElementById('editTitle').value = item.querySelector('.editable-title').textContent;
+  document.getElementById('editSubtitle').value = item.querySelector('.editable-subtitle').textContent;
+  document.getElementById('editDesc').value = item.querySelector('.editable-desc').textContent;
+  document.getElementById('storyEditModal').classList.remove('hidden');
+}
+function saveStoryEdit() {
+  if (!editingTimelineItem) return;
+  editingTimelineItem.querySelector('.editable-date').textContent = document.getElementById('editDate').value;
+  editingTimelineItem.querySelector('.editable-location').textContent = document.getElementById('editLocation').value;
+  editingTimelineItem.querySelector('.editable-title').textContent = document.getElementById('editTitle').value;
+  editingTimelineItem.querySelector('.editable-subtitle').textContent = document.getElementById('editSubtitle').value;
+  editingTimelineItem.querySelector('.editable-desc').textContent = document.getElementById('editDesc').value;
+  document.getElementById('storyEditModal').classList.add('hidden');
+  editingTimelineItem = null;
+}
+
+// Add New Story
+let storyCounter = 5;
+function addNewStory() {
+  const icons = ['auto_awesome', 'favorite', 'star', 'music_note', 'flight', 'park', 'cake', 'celebration'];
+  const icon = icons[Math.floor(Math.random() * icons.length)];
+  const html = `
+    <div class="relative flex items-start gap-4 timeline-item" data-id="${storyCounter++}">
+      <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(138,40,70,0.12)] flex items-center justify-center text-primary">
+        <div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px] filled">${icon}</span>
+        </div>
+      </div>
+      <div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md p-space-md shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] space-y-space-xs">
+        <div class="flex items-center justify-between flex-wrap gap-1">
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-semibold editable-date">NEW MEMORY</span>
+          <div class="flex items-center text-outline gap-1 text-[12px]">
+            <span class="material-symbols-outlined text-[14px]">pin_drop</span>
+            <span class="editable-location">Add location</span>
+          </div>
+        </div>
+        <div>
+          <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">New Memory Title</h2>
+          <p class="italic text-on-surface text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">Add a subtitle</p>
+        </div>
+        <p class="text-[12px] text-on-surface-variant editable-desc">Write your beautiful memory here...</p>
+        <button class="flex items-center gap-1 text-primary text-[10px] font-semibold mt-1" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit this memory</button>
+      </div>
+    </div>`;
+  document.getElementById('timelineContainer').insertAdjacentHTML('beforeend', html);
+}
+</script>
+</body>
+</html>
