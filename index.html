@@ -119,6 +119,30 @@ tailwind.config = {
 </head>
 <body>
 
+<!-- PASSWORD SCREEN -->
+<div id="passwordScreen" class="fixed inset-0 z-[100] bg-gradient-to-br from-[#6b0e30] via-[#8a2846] to-[#512c2b] flex flex-col items-center justify-center px-6">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-32 right-8 w-40 h-40 bg-[#fed65b]/10 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 flex flex-col items-center text-center space-y-6">
+    <div class="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center shadow-lg">
+      <span class="material-symbols-outlined text-[36px] text-white filled">favorite</span>
+    </div>
+    <div>
+      <h1 class="text-2xl text-white font-bold" style="font-family:'Playfair Display',serif">Asif & Shahzadi</h1>
+      <p class="text-white/60 text-[12px] uppercase tracking-widest mt-1 font-semibold">Eternal Love</p>
+    </div>
+    <div class="w-full max-w-xs space-y-3">
+      <input type="password" id="passwordInput" placeholder="Enter password" class="w-full px-4 py-3 rounded-full bg-white/10 backdrop-blur-md text-white text-[14px] placeholder-white/40 border border-white/20 focus:outline-none focus:border-white/50 text-center tracking-widest" maxlength="20">
+      <button onclick="checkPassword()" class="w-full py-3 rounded-full bg-white text-[#6b0e30] text-[13px] font-bold uppercase tracking-widest shadow-lg active:scale-[0.98] transition-transform">
+        Enter
+      </button>
+      <p class="text-white/40 text-[11px]" id="passError"></p>
+    </div>
+  </div>
+</div>
+
 <!-- ======================== HOME PAGE ======================== -->
 <div class="page active" id="page-home">
   <!-- Ambient Glow -->
@@ -582,74 +606,7 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- Gallery Items -->
-    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="trips">
-      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-surface-container-low to-surface-container-high flex items-center justify-center">
-        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
-      </div>
-      <div class="px-1 mt-2">
-        <p class="text-[13px] text-on-surface font-semibold">Coffee Date at Espresso Studio</p>
-        <p class="text-[11px] text-on-surface-variant">First meeting moments</p>
-        <div class="flex items-center justify-between mt-2">
-          <span class="text-[10px] text-outline">Oct 2021</span>
-          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="47">
-            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
-            <span class="like-count">47+</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="trips">
-      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-surface-container-low to-surface-container-high flex items-center justify-center">
-        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
-      </div>
-      <div class="px-1 mt-2">
-        <p class="text-[13px] text-on-surface font-semibold">Midnight Drive to Margalla</p>
-        <p class="text-[11px] text-on-surface-variant">Under the stars</p>
-        <div class="flex items-center justify-between mt-2">
-          <span class="text-[10px] text-outline">Feb 2022</span>
-          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="63">
-            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
-            <span class="like-count">63+</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="celebrations">
-      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-primary-fixed/30 flex items-center justify-center">
-        <span class="material-symbols-outlined text-[48px] text-primary/30">photo_library</span>
-      </div>
-      <div class="px-1 mt-2">
-        <p class="text-[13px] text-on-surface font-semibold">Proposal Night</p>
-        <p class="text-[11px] text-on-surface-variant">The most magical evening</p>
-        <div class="flex items-center justify-between mt-2">
-          <span class="text-[10px] text-outline">Nov 2023</span>
-          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="89">
-            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
-            <span class="like-count">89+</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-item bg-surface-container-lowest p-3 rounded-xl shadow-md" data-category="candids">
-      <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-tertiary-fixed/30 to-surface-container-low flex items-center justify-center">
-        <span class="material-symbols-outlined text-[48px] text-outline-variant">photo_library</span>
-      </div>
-      <div class="px-1 mt-2">
-        <p class="text-[13px] text-on-surface font-semibold">Candid Smile</p>
-        <p class="text-[11px] text-on-surface-variant">That perfect moment</p>
-        <div class="flex items-center justify-between mt-2">
-          <span class="text-[10px] text-outline">2023</span>
-          <button class="like-btn flex items-center gap-1 text-on-surface-variant text-[11px]" data-liked="false" data-count="35">
-            <span class="material-symbols-outlined text-[14px] heart-icon">favorite_border</span>
-            <span class="like-count">35+</span>
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- Uploaded photos will appear here -->
   </div>
 
   <!-- End Vignette -->
@@ -679,13 +636,14 @@ tailwind.config = {
 
   <!-- Photo Upload -->
   <section class="w-full px-gutter-mobile pt-space-sm pb-space-md">
-    <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden">
-      <input type="file" accept="image/*" class="hidden">
-      <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs">
+    <label class="border-2 border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center justify-center cursor-pointer transition-all duration-300 group relative overflow-hidden" id="wishPhotoLabel">
+      <input type="file" accept="image/*" class="hidden" id="wishPhotoInput">
+      <img id="wishPhotoPreview" class="hidden absolute inset-0 w-full h-full object-cover rounded-xl">
+      <div class="w-14 h-14 rounded-full bg-primary-fixed/40 group-hover:bg-primary-fixed flex items-center justify-center text-primary transition-colors shadow-sm mb-space-xs" id="wishPhotoIcon">
         <span class="material-symbols-outlined text-[26px]">add_a_photo</span>
       </div>
-      <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif">Add Couple Thank You Photo</span>
-      <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
+      <span class="font-headline text-[17px] text-primary group-hover:underline" style="font-family:'Playfair Display',serif" id="wishPhotoText">Add Couple Thank You Photo</span>
+      <p class="text-[12px] text-on-surface-variant mt-1 max-w-xs leading-relaxed text-center" id="wishPhotoDesc">Asif & Shahzadi can upload their personal thank you picture or portrait here.</p>
       <span class="text-[9px] text-secondary font-semibold uppercase tracking-widest mt-space-xs bg-secondary-fixed/30 px-3 py-1 rounded-full">Couple Only &bull; Tap to Upload</span>
     </label>
   </section>
@@ -717,13 +675,15 @@ tailwind.config = {
           </div>
         </div>
         <div class="flex items-center gap-space-xs mt-space-md w-full px-space-sm">
-          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockInput" maxlength="24" placeholder="Engrave your initials or note..." type="text">
+          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockPassword" maxlength="24" placeholder="Enter password to lock..." type="password">
+          <input class="flex-1 text-[13px] font-body bg-surface-container-lowest text-on-surface px-space-md py-2.5 rounded-full placeholder:text-outline/70 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="lockInput" maxlength="24" placeholder="Engrave your initials..." type="text">
           <button class="bg-primary text-on-primary text-[11px] uppercase px-space-md py-2.5 rounded-full shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1 active:scale-95 font-semibold" id="lockBtn" type="button">
             <span class="material-symbols-outlined text-[16px]">key</span>
             <span>Lock</span>
           </button>
         </div>
         <p class="text-[12px] text-primary font-medium mt-2 hidden transition-all" id="lockToast">&#x2728; Your prayer was locked in the golden archive!</p>
+        <p class="text-[11px] text-red-500 mt-1 hidden" id="lockError">Wrong password! Hint: sweet love</p>
       </div>
     </div>
   </section>
@@ -1130,6 +1090,20 @@ document.getElementById('galleryFileInput').onchange = function(e) {
   };
   reader.readAsDataURL(file);
 };
+
+// Wishes Photo Upload
+document.getElementById('wishPhotoInput').onchange = function(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('wishPhotoPreview').src = ev.target.result;
+    document.getElementById('wishPhotoPreview').classList.remove('hidden');
+    document.getElementById('wishPhotoIcon').classList.add('hidden');
+    document.getElementById('wishPhotoText').textContent = 'Change Photo';
+    document.getElementById('wishPhotoDesc').textContent = 'Photo uploaded! Tap to change.';
+  };
+  reader.readAsDataURL(file);
+};
 document.getElementById('publishGalleryBtn').onclick = function() {
   const preview = document.getElementById('galleryPreview');
   const caption = document.getElementById('galleryCaption').value.trim() || 'New Memory';
@@ -1143,6 +1117,9 @@ document.getElementById('publishGalleryBtn').onclick = function() {
   card.innerHTML = `
     <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
       <img src="${imgSrc}" class="w-full h-full object-cover">
+      <button class="delete-gallery-btn absolute top-2 right-2 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full p-1 hover:bg-red-100 transition-colors" title="Delete photo">
+        <span class="material-symbols-outlined text-[14px] text-red-500">delete</span>
+      </button>
     </div>
     <div class="px-1 mt-2">
       <p class="text-[13px] text-on-surface font-semibold">${caption}</p>
@@ -1261,10 +1238,13 @@ function submitMemory() {
   card.innerHTML = `
     <div class="flex items-center gap-space-sm mb-2">
       <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold shadow-sm" style="font-family:'Playfair Display',serif">${initials}</div>
-      <div>
+      <div class="flex-1">
         <h4 class="text-[13px] font-semibold text-on-surface">${name}</h4>
         <span class="text-[9px] text-outline">Just Shared &bull; Memory</span>
       </div>
+      <button class="delete-mem-btn text-outline hover:text-red-500 transition-colors p-1 rounded-full" title="Delete memory">
+        <span class="material-symbols-outlined text-[16px]">delete</span>
+      </button>
     </div>
     <p class="text-[13px] text-on-surface-variant leading-relaxed italic" style="font-family:'Playfair Display',serif">"${text}"</p>
     <div class="flex items-center justify-between mt-2 pt-2 border-t border-outline-variant/30">
@@ -1368,6 +1348,70 @@ function addNewStory() {
     </div>`;
   document.getElementById('timelineContainer').insertAdjacentHTML('beforeend', html);
 }
+
+// Password Screen
+function checkPassword() {
+  const input = document.getElementById('passwordInput').value.trim();
+  const error = document.getElementById('passError');
+  if (input === 'z+a/k/l') {
+    document.getElementById('passwordScreen').classList.add('hidden');
+    document.getElementById('passwordScreen').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  } else {
+    error.textContent = 'Wrong password! Hint: z+a/k/l';
+    error.classList.remove('hidden');
+    document.getElementById('passwordInput').value = '';
+    document.getElementById('passwordInput').focus();
+    setTimeout(() => { error.classList.add('hidden'); error.textContent = ''; }, 3000);
+  }
+}
+document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkPassword();
+});
+
+// Love Lock Password
+document.getElementById('lockBtn').onclick = () => {
+  const password = document.getElementById('lockPassword').value.trim();
+  const v = document.getElementById('lockInput').value.trim();
+  const errorEl = document.getElementById('lockError');
+  const toastEl = document.getElementById('lockToast');
+  if (!password) {
+    errorEl.textContent = 'Enter the lock password!';
+    errorEl.classList.remove('hidden');
+    setTimeout(() => errorEl.classList.add('hidden'), 3000);
+    return;
+  }
+  if (password !== 'sweet love') {
+    errorEl.textContent = 'Wrong password! Hint: sweet love';
+    errorEl.classList.remove('hidden');
+    setTimeout(() => errorEl.classList.add('hidden'), 3000);
+    return;
+  }
+  errorEl.classList.add('hidden');
+  if (v) {
+    document.getElementById('lockText').textContent = v;
+    document.getElementById('lockInput').value = '';
+    document.getElementById('lockPassword').value = '';
+    toastEl.classList.remove('hidden');
+    setTimeout(() => toastEl.classList.add('hidden'), 3500);
+  }
+};
+
+// Delete Button for Submitted Memories
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.delete-mem-btn');
+  if (!btn) return;
+  const card = btn.closest('.rounded-xl');
+  if (card) card.remove();
+});
+
+// Delete Button for Gallery Photos
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.delete-gallery-btn');
+  if (!btn) return;
+  const item = btn.closest('.gallery-item');
+  if (item) item.remove();
+});
 </script>
 </body>
 </html>
