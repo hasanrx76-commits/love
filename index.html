@@ -174,11 +174,14 @@ tailwind.config = {
           </label>
         </div>
         <!-- Change Photo Button (shown after upload) -->
-        <div id="heroChangeBtn" class="absolute bottom-3 right-3 z-30 hidden">
+        <div id="heroChangeBtn" class="absolute bottom-3 right-3 z-30 hidden flex items-center gap-2">
           <label class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-md text-primary text-[10px] font-semibold uppercase tracking-wider cursor-pointer active:scale-95 transition-transform hover:bg-white">
-            <span class="material-symbols-outlined text-[14px]">photo_camera</span> Change Photo
+            <span class="material-symbols-outlined text-[14px]">photo_camera</span> Change
             <input type="file" accept="image/*" class="hidden" id="heroChangeInput">
           </label>
+          <button onclick="deleteHeroCover()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-red-500/90 backdrop-blur-md shadow-md text-white text-[10px] font-semibold uppercase tracking-wider active:scale-95 transition-transform hover:bg-red-600">
+            <span class="material-symbols-outlined text-[14px]">delete</span> Delete
+          </button>
         </div>
       </div>
     </div>
@@ -914,6 +917,15 @@ function handleHeroCover(e) {
     document.getElementById('heroChangeBtn').classList.remove('hidden');
   }
 })();
+function deleteHeroCover() {
+  document.getElementById('heroCover').src = '';
+  document.getElementById('heroCover').classList.add('hidden');
+  document.getElementById('heroOverlay').classList.add('hidden');
+  document.getElementById('heroPrompt').style.display = '';
+  document.getElementById('heroChangeBtn').classList.add('hidden');
+  localStorage.removeItem('heroCover');
+  document.getElementById('heroInput').value = '';
+}
 
 // Quotes - 3 Languages
 const quotes = [
