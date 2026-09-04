@@ -1102,14 +1102,11 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
   };
 });
 
-document.getElementById('galleryFileInput').onchange = function(e) {
+document.getElementById('galleryFileInput').onchange = async function(e) {
   const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    document.getElementById('galleryPreview').src = ev.target.result;
-    document.getElementById('galleryPreview').classList.remove('hidden');
-  };
-  reader.readAsDataURL(file);
+  const dataUrl = await compressImage(file, 800, 0.7);
+  document.getElementById('galleryPreview').src = dataUrl;
+  document.getElementById('galleryPreview').classList.remove('hidden');
 };
 document.getElementById('publishGalleryBtn').onclick = async function() {
   const preview = document.getElementById('galleryPreview');
@@ -1393,12 +1390,24 @@ function saveStoryEdit() {
   editingTimelineItem = null;
 }
 
-let storyCounter = 5;
 function addNewStory() {
   const icons = ['auto_awesome', 'favorite', 'star', 'music_note', 'flight', 'park', 'cake', 'celebration'];
   const icon = icons[Math.floor(Math.random() * icons.length)];
+  db.ref(SITE + '/stories').push({
+    icon: icon,
+    date: 'NEW MEMORY',
+    location: 'Add location',
+    title: 'New Memory Title',
+    subtitle: 'Add a subtitle',
+    desc: 'Write your beautiful memory here...',
+    time: Date.now()
+  });
+}
+function renderStory(id, data) {
+  const icons = ['auto_awesome', 'favorite', 'star', 'music_note', 'flight', 'park', 'cake', 'celebration'];
+  const icon = data.icon || icons[Math.floor(Math.random() * icons.length)];
   const html = `
-    <div class="relative flex items-start gap-4 timeline-item" data-id="${storyCounter++}">
+    <div class="relative flex items-start gap-4 timeline-item" data-id="${id}">
       <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(138,40,70,0.12)] flex items-center justify-center text-primary">
         <div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center">
           <span class="material-symbols-outlined text-[20px] filled">${icon}</span>
@@ -1406,22 +1415,39 @@ function addNewStory() {
       </div>
       <div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-md p-space-md shadow-[0_4px_24px_-2px_rgba(138,40,70,0.06)] space-y-space-xs">
         <div class="flex items-center justify-between flex-wrap gap-1">
-          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-semibold editable-date">NEW MEMORY</span>
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-semibold editable-date">${data.date || 'NEW MEMORY'}</span>
           <div class="flex items-center text-outline gap-1 text-[12px]">
             <span class="material-symbols-outlined text-[14px]">pin_drop</span>
-            <span class="editable-location">Add location</span>
+            <span class="editable-location">${data.location || 'Add location'}</span>
           </div>
         </div>
         <div>
-          <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">New Memory Title</h2>
-          <p class="italic text-on-surface text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">Add a subtitle</p>
+          <h2 class="font-headline text-base text-primary editable-title" style="font-family:'Playfair Display',serif">${data.title || 'New Memory Title'}</h2>
+          <p class="italic text-on-surface text-[15px] leading-snug editable-subtitle" style="font-family:'Playfair Display',serif">${data.subtitle || 'Add a subtitle'}</p>
         </div>
-        <p class="text-[12px] text-on-surface-variant editable-desc">Write your beautiful memory here...</p>
-        <button class="flex items-center gap-1 text-primary text-[10px] font-semibold mt-1" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit this memory</button>
+        <p class="text-[12px] text-on-surface-variant editable-desc">${data.desc || 'Write your beautiful memory here...'}</p>
+        <div class="flex items-center gap-2 mt-1">
+          <button class="flex items-center gap-1 text-primary text-[10px] font-semibold" onclick="editTimelineItem(this)"><span class="material-symbols-outlined text-[12px]">edit</span> Edit</button>
+          <button class="delete-story-btn flex items-center gap-1 text-red-500 text-[10px] font-semibold" data-story-id="${id}"><span class="material-symbols-outlined text-[12px]">delete</span> Delete</button>
+        </div>
       </div>
     </div>`;
+  const existing = document.querySelector(`[data-id="${id}"]`);
+  if (existing) existing.remove();
   document.getElementById('timelineContainer').insertAdjacentHTML('beforeend', html);
 }
+db.ref(SITE + '/stories').on('value', snap => {
+  if (snap.exists()) {
+    const stories = snap.val();
+    Object.keys(stories).forEach(id => renderStory(id, stories[id]));
+  }
+});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.delete-story-btn');
+  if (!btn) return;
+  const id = btn.dataset.storyId;
+  if (id && confirm('Delete this story?')) db.ref(SITE + '/stories/' + id).remove();
+});
 
 function checkPassword() {
   const input = document.getElementById('passwordInput').value.trim();
