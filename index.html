@@ -935,7 +935,7 @@ function compressImage(file, maxWidth, quality) {
 }
 
 let startDate = new Date(2021, 9, 14);
-db.ref(SITE + '/startDate').on('snap', s => {
+db.ref(SITE + '/startDate').on('value', s => {
   if (s.exists()) startDate = new Date(s.val());
   updateCountdown();
 });
@@ -980,7 +980,7 @@ async function handleHeroCover(e) {
   document.getElementById('heroChangeBtn').classList.remove('hidden');
   db.ref(SITE + '/heroCover').set(dataUrl);
 }
-db.ref(SITE + '/heroCover').on('snap', s => {
+db.ref(SITE + '/heroCover').on('value', s => {
   if (s.exists()) {
     document.getElementById('heroCover').src = s.val();
     document.getElementById('heroCover').classList.remove('hidden');
@@ -1027,8 +1027,8 @@ document.getElementById('likeQuoteBtn').onclick = () => {
 };
 
 let diaryLiked = false, diaryCount = 142;
-db.ref(SITE + '/diaryLiked').on('snap', s => { if (s.exists()) diaryLiked = s.val(); updateDiary(); });
-db.ref(SITE + '/diaryCount').on('snap', s => { if (s.exists()) diaryCount = s.val(); updateDiary(); });
+db.ref(SITE + '/diaryLiked').on('value', s => { if (s.exists()) diaryLiked = s.val(); updateDiary(); });
+db.ref(SITE + '/diaryCount').on('value', s => { if (s.exists()) diaryCount = s.val(); updateDiary(); });
 function updateDiary() {
   const icon = document.getElementById('diaryHeartIcon'), cnt = document.getElementById('diaryHeartCount');
   icon.textContent = diaryLiked ? 'favorite' : 'favorite_border';
@@ -1047,8 +1047,8 @@ document.getElementById('diaryHeartBtn').onclick = () => {
 };
 
 let heroLiked = false, heroCount = 142;
-db.ref(SITE + '/heroLiked').on('snap', s => { if (s.exists()) heroLiked = s.val(); updateHero(); });
-db.ref(SITE + '/heroCount').on('snap', s => { if (s.exists()) heroCount = s.val(); updateHero(); });
+db.ref(SITE + '/heroLiked').on('value', s => { if (s.exists()) heroLiked = s.val(); updateHero(); });
+db.ref(SITE + '/heroCount').on('value', s => { if (s.exists()) heroCount = s.val(); updateHero(); });
 function updateHero() { document.getElementById('heroLikesNum').textContent = heroCount; }
 updateHero();
 document.getElementById('heroLikeBtn').onclick = document.getElementById('heroLikesBtn').onclick = () => {
@@ -1066,7 +1066,7 @@ async function handleHeroMemory(e) {
   db.ref(SITE + '/heroMemory').set(dataUrl);
 }
 document.getElementById('heroMemoryInput').onchange = handleHeroMemory;
-db.ref(SITE + '/heroMemory').on('snap', s => {
+db.ref(SITE + '/heroMemory').on('value', s => {
   if (s.exists()) {
     document.getElementById('heroMemoryImg').src = s.val();
     document.getElementById('heroMemoryImg').classList.remove('hidden');
@@ -1307,7 +1307,7 @@ document.addEventListener('click', e => {
 });
 
 let currentNoteText = document.getElementById('noteForShahzadi').textContent;
-db.ref(SITE + '/noteForShahzadi').on('snap', s => {
+db.ref(SITE + '/noteForShahzadi').on('value', s => {
   if (s.exists()) document.getElementById('noteForShahzadi').textContent = '"' + s.val() + '"';
 });
 function saveLetter() {
